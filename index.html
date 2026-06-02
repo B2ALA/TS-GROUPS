@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TS GROUP OF COMPANY</title>
+  <title>TS GROUP OF INSTITUTION</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -17,23 +16,28 @@
       font-family:'Poppins',sans-serif;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
-      background:#0b1020;
+      background:#06121f;
       color:white;
       overflow-x:hidden;
     }
 
-    /* Animated Background */
+    /* BACKGROUND */
+
     body::before{
       content:'';
       position:fixed;
       width:500px;
       height:500px;
-      background:#00c6ff;
+      background:#00bfff;
       filter:blur(180px);
-      top:-100px;
-      left:-100px;
-      opacity:0.4;
+      top:-120px;
+      left:-120px;
+      opacity:0.3;
       z-index:-1;
     }
 
@@ -42,180 +46,239 @@
       position:fixed;
       width:500px;
       height:500px;
-      background:#7f00ff;
+      background:#7a00ff;
       filter:blur(180px);
-      bottom:-100px;
-      right:-100px;
-      opacity:0.4;
+      bottom:-120px;
+      right:-120px;
+      opacity:0.3;
       z-index:-1;
     }
 
-    /* Navbar */
+    /* NAVBAR */
+
     nav{
+      position:fixed;
       width:100%;
-      padding:20px 8%;
+      top:0;
+      padding:18px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      position:fixed;
-      top:0;
-      backdrop-filter:blur(12px);
       background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(255,255,255,0.1);
       z-index:1000;
     }
 
     .logo{
-      font-size:28px;
-      font-weight:700;
-      color:#fff;
+      font-size:32px;
+      font-weight:800;
       letter-spacing:1px;
     }
 
     .logo span{
-      color:#00c6ff;
+      color:#00cfff;
     }
 
     nav ul{
       display:flex;
-      gap:30px;
+      gap:25px;
       list-style:none;
     }
 
     nav ul li a{
       text-decoration:none;
       color:white;
-      font-weight:500;
       transition:0.3s;
+      font-weight:500;
     }
 
     nav ul li a:hover{
-      color:#00c6ff;
+      color:#00cfff;
     }
 
-    /* Hero Section */
+    /* HERO */
+
     .hero{
       min-height:100vh;
       display:flex;
       justify-content:center;
       align-items:center;
       text-align:center;
-      padding:120px 20px 50px;
+      padding:140px 20px 70px;
     }
 
     .hero-content{
-      max-width:900px;
+      max-width:1000px;
     }
 
     .hero h1{
-      font-size:70px;
-      line-height:1.2;
-      margin-bottom:20px;
+      font-size:72px;
       font-weight:800;
+      line-height:1.2;
+      margin-bottom:25px;
     }
 
     .hero h1 span{
-      background:linear-gradient(90deg,#00c6ff,#7f00ff);
+      background:linear-gradient(90deg,#00d9ff,#8f5cff);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
     }
 
     .hero p{
       font-size:20px;
-      color:#d1d1d1;
-      margin-bottom:35px;
+      color:#d3d3d3;
       line-height:1.8;
+      margin-bottom:35px;
     }
 
-    .buttons{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:15px 35px;
-      border:none;
+    .hero-btn{
+      padding:16px 40px;
       border-radius:50px;
-      font-size:16px;
-      font-weight:600;
-      cursor:pointer;
-      transition:0.4s;
+      background:linear-gradient(90deg,#00cfff,#006eff);
+      color:white;
       text-decoration:none;
+      font-weight:600;
+      display:inline-block;
+      transition:0.4s;
+      box-shadow:0 0 30px rgba(0,207,255,0.5);
     }
 
-    .btn-primary{
-      background:linear-gradient(90deg,#00c6ff,#0072ff);
-      color:white;
-      box-shadow:0 0 20px rgba(0,198,255,0.5);
-    }
-
-    .btn-primary:hover{
+    .hero-btn:hover{
       transform:translateY(-5px);
-      box-shadow:0 0 35px rgba(0,198,255,0.8);
+      box-shadow:0 0 45px rgba(0,207,255,0.8);
     }
 
-    .btn-secondary{
-      background:transparent;
-      border:2px solid rgba(255,255,255,0.2);
-      color:white;
+    /* SECTION */
+
+    .section{
+      padding:90px 8%;
     }
 
-    .btn-secondary:hover{
-      background:white;
-      color:#111;
-      transform:translateY(-5px);
+    .section-title{
+      text-align:center;
+      font-size:50px;
+      margin-bottom:60px;
+      font-weight:700;
     }
 
-    /* Features */
-    .features{
-      padding:80px 8%;
+    .section-title span{
+      color:#00d9ff;
+    }
+
+    /* GRID */
+
+    .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:35px;
     }
+
+    /* CARD */
 
     .card{
-      background:rgba(255,255,255,0.05);
+      background:rgba(255,255,255,0.06);
       border:1px solid rgba(255,255,255,0.1);
-      border-radius:20px;
+      border-radius:28px;
       padding:35px;
+      backdrop-filter:blur(12px);
       transition:0.4s;
-      backdrop-filter:blur(10px);
+      cursor:pointer;
+      overflow:hidden;
+      position:relative;
     }
 
     .card:hover{
       transform:translateY(-10px);
-      border-color:#00c6ff;
-      box-shadow:0 0 30px rgba(0,198,255,0.2);
+      border-color:#00cfff;
+      box-shadow:0 0 35px rgba(0,207,255,0.2);
     }
 
-    .card h3{
-      font-size:24px;
+    .card h2{
+      color:#00d9ff;
       margin-bottom:15px;
-      color:#00c6ff;
+      font-size:30px;
+    }
+
+    .badge{
+      display:inline-block;
+      background:rgba(0,217,255,0.15);
+      color:#00e5ff;
+      padding:8px 18px;
+      border-radius:30px;
+      font-size:14px;
+      margin-bottom:20px;
     }
 
     .card p{
-      color:#cfcfcf;
+      color:#d6d6d6;
       line-height:1.7;
+      margin-bottom:15px;
     }
 
-    /* Footer */
+    /* DETAILS */
+
+    .details{
+      display:none;
+      margin-top:20px;
+      animation:fade 0.5s ease;
+    }
+
+    .details h3{
+      margin-top:18px;
+      margin-bottom:10px;
+      color:#ffffff;
+    }
+
+    .details ul{
+      padding-left:18px;
+    }
+
+    .details ul li{
+      margin-bottom:10px;
+      color:#d9d9d9;
+    }
+
+    .info{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:14px;
+      border-radius:14px;
+      margin-top:15px;
+      line-height:1.8;
+    }
+
+    .fee{
+      margin-top:18px;
+      background:linear-gradient(90deg,#00cfff,#0059ff);
+      padding:14px;
+      text-align:center;
+      border-radius:14px;
+      font-weight:600;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* FOOTER */
+
     footer{
       text-align:center;
-      padding:30px;
+      padding:35px;
       border-top:1px solid rgba(255,255,255,0.1);
-      color:#bdbdbd;
-      margin-top:40px;
+      color:#cfcfcf;
+      margin-top:50px;
     }
 
     @media(max-width:768px){
-
-      .hero h1{
-        font-size:42px;
-      }
 
       nav{
         flex-direction:column;
@@ -223,9 +286,16 @@
       }
 
       nav ul{
-        gap:15px;
         flex-wrap:wrap;
         justify-content:center;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .section-title{
+        font-size:35px;
       }
     }
   </style>
@@ -233,78 +303,360 @@
 
 <body>
 
-  <!-- Navbar -->
+  <!-- NAVBAR -->
+
   <nav>
-    <div class="logo">TS <span>GROUP</span></div>
+
+    <div class="logo">
+      TS <span>GROUP</span>
+    </div>
 
     <ul>
       <li><a href="#">Home</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Projects</a></li>
+      <li><a href="#institutions">Institutions</a></li>
+      <li><a href="#">Admissions</a></li>
+      <li><a href="#">Placements</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
+
   </nav>
 
-  <!-- Hero Section -->
+  <!-- HERO -->
+
   <section class="hero">
+
     <div class="hero-content">
 
       <h1>
-        Welcome to <span>TS GROUP OF COMPANY</span>
+        Welcome to <span>TS GROUP OF INSTITUTION</span>
       </h1>
 
       <p>
-        Building innovative digital solutions with premium technology,
-        modern design, and powerful business growth strategies.
-        We transform ideas into world-class experiences.
+        Excellence in education with premium infrastructure, smart classrooms,
+        modern laboratories, experienced faculty, research innovation,
+        placement support, and globally recognized accreditation standards.
       </p>
 
-      <div class="buttons">
-        <a href="#" class="btn btn-primary">Get Started</a>
-        <a href="#" class="btn btn-secondary">Learn More</a>
+      <a href="#institutions" class="hero-btn">
+        Explore Institutions
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- INSTITUTIONS -->
+
+  <section class="section" id="institutions">
+
+    <h1 class="section-title">
+      Our <span>Institutions</span>
+    </h1>
+
+    <div class="grid">
+
+      <!-- Engineering -->
+
+      <div class="card" onclick="toggleDetails(this)">
+
+        <h2>Engineering College</h2>
+
+        <div class="badge">
+          NBA Accredited | NAAC A++
+        </div>
+
+        <p>
+          Premium engineering education with innovation labs and placement training.
+        </p>
+
+        <div class="details">
+
+          <h3>Courses Available</h3>
+
+          <ul>
+            <li>B.E CSE</li>
+            <li>B.E ECE</li>
+            <li>B.E EEE</li>
+            <li>B.Tech AI & DS</li>
+            <li>B.Tech IT</li>
+            <li>M.E VLSI Design</li>
+          </ul>
+
+          <div class="info">
+            <b>Affiliation :</b> Anna University<br>
+            <b>Approval :</b> AICTE Approved<br>
+            <b>Campus :</b> Smart Labs, WiFi Campus, Hostel<br>
+            <b>Placement :</b> TCS, Infosys, Wipro, Zoho
+          </div>
+
+          <div class="fee">
+            Fees : ₹85,000 - ₹1,50,000 / Year
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Arts -->
+
+      <div class="card" onclick="toggleDetails(this)">
+
+        <h2>CAS College</h2>
+
+        <div class="badge">
+          NAAC A+ Certified
+        </div>
+
+        <p>
+          Arts and Science programs with advanced research facilities.
+        </p>
+
+        <div class="details">
+
+          <h3>Courses Available</h3>
+
+          <ul>
+            <li>B.Sc Computer Science</li>
+            <li>BCA</li>
+            <li>B.Com</li>
+            <li>BBA</li>
+            <li>M.Sc IT</li>
+          </ul>
+
+          <div class="info">
+            <b>Affiliation :</b> Bharathidasan University<br>
+            <b>Facilities :</b> Digital Library, Labs, Seminar Hall<br>
+            <b>Training :</b> Internship & Placement Support
+          </div>
+
+          <div class="fee">
+            Fees : ₹40,000 - ₹80,000 / Year
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- MBA -->
+
+      <div class="card" onclick="toggleDetails(this)">
+
+        <h2>MBA College</h2>
+
+        <div class="badge">
+          AICTE Approved | NAAC Accredited
+        </div>
+
+        <p>
+          Business management programs with industry-oriented learning.
+        </p>
+
+        <div class="details">
+
+          <h3>Courses Available</h3>
+
+          <ul>
+            <li>MBA HR</li>
+            <li>MBA Finance</li>
+            <li>MBA Marketing</li>
+            <li>MBA Logistics</li>
+          </ul>
+
+          <div class="info">
+            <b>Industry Exposure :</b> Live Projects & Internships<br>
+            <b>Placement :</b> Corporate Recruitment Training<br>
+            <b>Facilities :</b> Smart Classrooms & Seminar Halls
+          </div>
+
+          <div class="fee">
+            Fees : ₹1,20,000 - ₹2,20,000 / Year
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- MBBS -->
+
+      <div class="card" onclick="toggleDetails(this)">
+
+        <h2>MBBS College</h2>
+
+        <div class="badge">
+          NMC Approved | Medical Research Center
+        </div>
+
+        <p>
+          Modern medical education with hospital training and research labs.
+        </p>
+
+        <div class="details">
+
+          <h3>Courses Available</h3>
+
+          <ul>
+            <li>MBBS</li>
+            <li>MD General Medicine</li>
+            <li>MS Surgery</li>
+          </ul>
+
+          <div class="info">
+            <b>Hospital :</b> 1000+ Bed Multi-Speciality Hospital<br>
+            <b>Labs :</b> Anatomy, Physiology, Pathology Labs<br>
+            <b>Training :</b> Clinical Exposure & Internship
+          </div>
+
+          <div class="fee">
+            Fees : ₹8,00,000 - ₹18,00,000 / Year
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Nursing -->
+
+      <div class="card" onclick="toggleDetails(this)">
+
+        <h2>Nursing College</h2>
+
+        <div class="badge">
+          INC Approved | Medical Campus
+        </div>
+
+        <p>
+          Nursing education with advanced healthcare practical training.
+        </p>
+
+        <div class="details">
+
+          <h3>Courses Available</h3>
+
+          <ul>
+            <li>B.Sc Nursing</li>
+            <li>GNM</li>
+            <li>ANM</li>
+          </ul>
+
+          <div class="info">
+            <b>Training :</b> Clinical Hospital Training<br>
+            <b>Facilities :</b> Nursing Labs & Hostel<br>
+            <b>Placement :</b> Hospitals & Healthcare Companies
+          </div>
+
+          <div class="fee">
+            Fees : ₹90,000 - ₹1,60,000 / Year
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Yoga -->
+
+      <div class="card" onclick="toggleDetails(this)">
+
+        <h2>Nature & Yoga College</h2>
+
+        <div class="badge">
+          AYUSH Recognized
+        </div>
+
+        <p>
+          Holistic education focused on wellness, yoga, and naturopathy.
+        </p>
+
+        <div class="details">
+
+          <h3>Courses Available</h3>
+
+          <ul>
+            <li>BNYS</li>
+            <li>Yoga Therapy</li>
+            <li>Naturopathy</li>
+          </ul>
+
+          <div class="info">
+            <b>Facilities :</b> Yoga Hall & Natural Therapy Center<br>
+            <b>Training :</b> Meditation & Wellness Programs<br>
+            <b>Campus :</b> Green Eco-Friendly Campus
+          </div>
+
+          <div class="fee">
+            Fees : ₹70,000 - ₹1,20,000 / Year
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- School -->
+
+      <div class="card" onclick="toggleDetails(this)">
+
+        <h2>CBSE School</h2>
+
+        <div class="badge">
+          CBSE Affiliated
+        </div>
+
+        <p>
+          Modern digital learning environment with smart education systems.
+        </p>
+
+        <div class="details">
+
+          <h3>Programs Available</h3>
+
+          <ul>
+            <li>LKG to 12th Standard</li>
+            <li>NEET / JEE Coaching</li>
+            <li>Smart Digital Classes</li>
+          </ul>
+
+          <div class="info">
+            <b>Facilities :</b> Robotics Lab, Sports Arena<br>
+            <b>Activities :</b> Dance, Music, Arts & Sports<br>
+            <b>Transport :</b> GPS Enabled Bus Facility
+          </div>
+
+          <div class="fee">
+            Fees : ₹45,000 - ₹1,30,000 / Year
+          </div>
+
+        </div>
+
       </div>
 
     </div>
-  </section>
-
-  <!-- Features -->
-  <section class="features">
-
-    <div class="card">
-      <h3>Web Development</h3>
-      <p>
-        Premium responsive websites with modern UI/UX and advanced performance.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Mobile Apps</h3>
-      <p>
-        Android and iOS applications designed for speed, security, and scalability.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Cloud Solutions</h3>
-      <p>
-        Secure cloud hosting and enterprise infrastructure for modern businesses.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Digital Branding</h3>
-      <p>
-        Powerful branding and marketing strategies to grow your company online.
-      </p>
-    </div>
 
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
+
   <footer>
-    © 2026 TS GROUP OF COMPANY | All Rights Reserved
+    © 2026 TS GROUP OF INSTITUTION | All Rights Reserved
   </footer>
 
+  <!-- SCRIPT -->
+
+  <script>
+
+    function toggleDetails(card){
+
+      let details = card.querySelector(".details");
+
+      if(details.style.display === "block"){
+        details.style.display = "none";
+      }
+      else{
+        details.style.display = "block";
+      }
+
+    }
+
+  </script>
+
 </body>
+
 </html>
