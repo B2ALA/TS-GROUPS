@@ -17,352 +17,9 @@
   <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-  <style>
+  <!-- CSS -->
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      background:#07111f;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    body::before{
-      content:'';
-      position:fixed;
-      width:500px;
-      height:500px;
-      background:#00d9ff;
-      filter:blur(180px);
-      top:-150px;
-      left:-150px;
-      opacity:0.3;
-      z-index:-1;
-    }
-
-    body::after{
-      content:'';
-      position:fixed;
-      width:500px;
-      height:500px;
-      background:#8a2eff;
-      filter:blur(180px);
-      bottom:-150px;
-      right:-150px;
-      opacity:0.3;
-      z-index:-1;
-    }
-
-    /* TOPBAR */
-
-    .topbar{
-      background:linear-gradient(90deg,#00d9ff,#005eff);
-      padding:12px 8%;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:10px;
-      font-size:14px;
-    }
-
-    /* ANNOUNCEMENT */
-
-    .announcement{
-      background:#00d9ff;
-      color:#00111f;
-      text-align:center;
-      padding:12px;
-      font-weight:700;
-      animation:blink 2s infinite;
-    }
-
-    @keyframes blink{
-      50%{
-        opacity:0.7;
-      }
-    }
-
-    /* NAVBAR */
-
-    nav{
-      position:sticky;
-      top:0;
-      width:100%;
-      padding:18px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(255,255,255,0.05);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      z-index:999;
-    }
-
-    .logo{
-      font-size:34px;
-      font-weight:800;
-    }
-
-    .logo span{
-      color:#00d9ff;
-    }
-
-    nav ul{
-      display:flex;
-      list-style:none;
-      gap:25px;
-      flex-wrap:wrap;
-    }
-
-    nav ul li a{
-      color:white;
-      text-decoration:none;
-      transition:0.3s;
-    }
-
-    nav ul li a:hover{
-      color:#00d9ff;
-    }
-
-    /* HERO */
-
-    .hero{
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:120px 20px;
-    }
-
-    .hero-content{
-      max-width:1100px;
-    }
-
-    .hero h1{
-      font-size:70px;
-      line-height:1.2;
-      margin-bottom:25px;
-      font-weight:800;
-    }
-
-    .hero h1 span{
-      background:linear-gradient(90deg,#00d9ff,#8f6bff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .hero p{
-      font-size:20px;
-      line-height:1.8;
-      color:#d8d8d8;
-      margin-bottom:40px;
-    }
-
-    .hero-btn{
-      display:inline-block;
-      padding:16px 40px;
-      border-radius:50px;
-      background:linear-gradient(90deg,#00d9ff,#005eff);
-      color:white;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.4s;
-      box-shadow:0 0 25px rgba(0,217,255,0.4);
-    }
-
-    .hero-btn:hover{
-      transform:translateY(-5px);
-    }
-
-    /* STATS */
-
-    .stats{
-      margin-top:60px;
-      display:flex;
-      justify-content:center;
-      gap:25px;
-      flex-wrap:wrap;
-    }
-
-    .stat-box{
-      background:rgba(255,255,255,0.05);
-      padding:30px;
-      border-radius:20px;
-      min-width:220px;
-      border:1px solid rgba(255,255,255,0.08);
-      transition:0.4s;
-    }
-
-    .stat-box:hover{
-      transform:translateY(-10px);
-      border-color:#00d9ff;
-    }
-
-    .stat-box h2{
-      font-size:40px;
-      color:#00d9ff;
-      margin-bottom:10px;
-    }
-
-    /* SECTION */
-
-    .section{
-      padding:90px 8%;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:48px;
-      margin-bottom:60px;
-    }
-
-    .section-title span{
-      color:#00d9ff;
-    }
-
-    /* SEARCH */
-
-    .search-box{
-      max-width:700px;
-      margin:auto;
-      margin-bottom:50px;
-    }
-
-    .search-box input{
-      width:100%;
-      padding:18px;
-      border:none;
-      outline:none;
-      border-radius:50px;
-      background:rgba(255,255,255,0.08);
-      color:white;
-      font-size:18px;
-    }
-
-    /* GRID */
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-      gap:35px;
-    }
-
-    /* CARD */
-
-    .card{
-      background:rgba(255,255,255,0.05);
-      border-radius:28px;
-      padding:35px;
-      transition:0.4s;
-      cursor:pointer;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .card:hover{
-      transform:translateY(-10px);
-      border-color:#00d9ff;
-      box-shadow:0 0 30px rgba(0,217,255,0.15);
-    }
-
-    .card h2{
-      color:#00d9ff;
-      margin-bottom:15px;
-      font-size:28px;
-    }
-
-    .badge{
-      display:inline-block;
-      padding:8px 18px;
-      border-radius:30px;
-      background:rgba(0,217,255,0.12);
-      color:#00d9ff;
-      margin-bottom:20px;
-      font-size:14px;
-    }
-
-    .card p{
-      color:#d8d8d8;
-      line-height:1.7;
-    }
-
-    /* DETAILS */
-
-    .details{
-      display:none;
-      margin-top:20px;
-      animation:fade 0.5s ease;
-    }
-
-    @keyframes fade{
-      from{
-        opacity:0;
-        transform:translateY(10px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    .details ul{
-      padding-left:20px;
-      margin-top:15px;
-    }
-
-    .details ul li{
-      margin-bottom:10px;
-      color:#d8d8d8;
-    }
-
-    .fee{
-      margin-top:20px;
-      background:linear-gradient(90deg,#00d9ff,#005eff);
-      padding:14px;
-      border-radius:15px;
-      text-align:center;
-      font-weight:600;
-    }
-
-    /* FOOTER */
-
-    footer{
-      text-align:center;
-      padding:35px;
-      margin-top:70px;
-      border-top:1px solid rgba(255,255,255,0.08);
-      color:#d5d5d5;
-    }
-
-    /* MOBILE */
-
-    @media(max-width:768px){
-
-      .hero h1{
-        font-size:42px;
-      }
-
-      .section-title{
-        font-size:34px;
-      }
-
-      nav{
-        flex-direction:column;
-        gap:15px;
-      }
-
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -373,7 +30,7 @@
   <div class="topbar">
 
     <div>
-      <i class="fa-solid fa-phone"></i> +91 9345836377
+      <i class="fa-solid fa-phone"></i> +91 9876543210
     </div>
 
     <div>
@@ -381,7 +38,7 @@
     </div>
 
     <div>
-      <i class="fa-solid fa-location-dot"></i> Salem Tamil Nadu, India
+      <i class="fa-solid fa-location-dot"></i> Tamil Nadu, India
     </div>
 
   </div>
@@ -501,6 +158,45 @@
         </div>
       </div>
 
+      <!-- MEDICAL -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Medical College</h2>
+        <div class="badge">NMC Approved</div>
+        <p>Medical education with hospital training.</p>
+
+        <div class="details">
+          <ul>
+            <li>MBBS</li>
+            <li>MD</li>
+            <li>MS</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹8,00,000 - ₹18,00,000 / Year
+          </div>
+        </div>
+      </div>
+
+      <!-- LAW -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Law College</h2>
+        <div class="badge">BCI Approved</div>
+        <p>Legal studies with moot court training.</p>
+
+        <div class="details">
+          <ul>
+            <li>LLB</li>
+            <li>BA LLB</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹80,000 - ₹2,20,000 / Year
+          </div>
+        </div>
+      </div>
+
       <!-- ARTS -->
 
       <div class="card" onclick="toggleDetails(this)">
@@ -539,64 +235,6 @@
         </div>
       </div>
 
-      <!-- MEDICAL -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Medical College</h2>
-        <div class="badge">NMC Approved</div>
-        <p>Medical education with hospital training.</p>
-
-        <div class="details">
-          <ul>
-            <li>MBBS</li>
-            <li>MD</li>
-            <li>MS</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹8,00,000 - ₹18,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- DENTAL -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Dental College</h2>
-        <div class="badge">DCI Approved</div>
-        <p>Dental healthcare and surgery programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>BDS</li>
-            <li>MDS</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹3,00,000 - ₹7,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- NURSING -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Nursing College</h2>
-        <div class="badge">INC Approved</div>
-        <p>Nursing education with clinical training.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Sc Nursing</li>
-            <li>GNM</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,20,000 - ₹2,50,000 / Year
-          </div>
-        </div>
-      </div>
-
       <!-- PHARMACY -->
 
       <div class="card" onclick="toggleDetails(this)">
@@ -616,268 +254,6 @@
         </div>
       </div>
 
-      <!-- LAW -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Law College</h2>
-        <div class="badge">BCI Approved</div>
-        <p>Legal studies with moot court training.</p>
-
-        <div class="details">
-          <ul>
-            <li>LLB</li>
-            <li>BA LLB</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹80,000 - ₹2,20,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- POLYTECHNIC -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Polytechnic College</h2>
-        <div class="badge">Diploma Programs</div>
-        <p>Technical diploma education with workshops.</p>
-
-        <div class="details">
-          <ul>
-            <li>Diploma Mechanical</li>
-            <li>Diploma Civil</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹40,000 - ₹90,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- ITI -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS ITI College</h2>
-        <div class="badge">Skill Development</div>
-        <p>Industrial and vocational training programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>Electrician</li>
-            <li>Welder</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹25,000 - ₹60,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- AGRICULTURE -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Agriculture College</h2>
-        <div class="badge">Agri Research Center</div>
-        <p>Modern agriculture and farming education.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Sc Agriculture</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹90,000 - ₹2,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- VETERINARY -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Veterinary College</h2>
-        <div class="badge">Animal Healthcare</div>
-        <p>Veterinary medicine and surgery programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>BVSc</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,50,000 - ₹3,50,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- ARCHITECTURE -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Architecture College</h2>
-        <div class="badge">COA Approved</div>
-        <p>Architecture and interior design programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Arch</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,50,000 - ₹4,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- DESIGN -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Design College</h2>
-        <div class="badge">Creative Studio</div>
-        <p>Creative and digital design education.</p>
-
-        <div class="details">
-          <ul>
-            <li>Graphic Design</li>
-            <li>UI/UX Design</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,00,000 - ₹2,50,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- AVIATION -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Aviation College</h2>
-        <div class="badge">Aviation Training Campus</div>
-        <p>Pilot and aviation management programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Sc Aviation</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹2,00,000 - ₹6,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- MANAGEMENT -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Management College</h2>
-        <div class="badge">AICTE Approved</div>
-        <p>Management education with corporate training.</p>
-
-        <div class="details">
-          <ul>
-            <li>MBA HR</li>
-            <li>MBA Finance</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,50,000 - ₹3,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- PHYSIOTHERAPY -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Physiotherapy College</h2>
-        <div class="badge">Rehabilitation Center</div>
-        <p>Physiotherapy and rehabilitation programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>BPT</li>
-            <li>MPT</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,20,000 - ₹2,50,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- PARAMEDICAL -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Paramedical College</h2>
-        <div class="badge">Medical Support Training</div>
-        <p>Emergency and medical support education.</p>
-
-        <div class="details">
-          <ul>
-            <li>Diploma Paramedical</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹80,000 - ₹2,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- RESEARCH -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Research Institute</h2>
-        <div class="badge">Innovation & Research</div>
-        <p>Advanced interdisciplinary research programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>Ph.D Programs</li>
-            <li>Research Fellowships</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,50,000 - ₹5,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- SCHOOL MATRIC -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS School Matric</h2>
-        <div class="badge">Matriculation Curriculum</div>
-        <p>Smart education with modern classrooms.</p>
-
-        <div class="details">
-          <ul>
-            <li>LKG - UKG</li>
-            <li>Primary School</li>
-            <li>Higher Secondary</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹25,000 - ₹80,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- CBSE -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS CBSE School</h2>
-        <div class="badge">CBSE Curriculum</div>
-        <p>International-standard CBSE education system.</p>
-
-        <div class="details">
-          <ul>
-            <li>Primary Education</li>
-            <li>Senior Secondary</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹40,000 - ₹1,20,000 / Year
-          </div>
-        </div>
-      </div>
-
     </div>
 
   </section>
@@ -888,45 +264,9 @@
     © 2026 TS GROUP OF INSTITUTION | All Rights Reserved
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- JS -->
 
-  <script>
-
-    function toggleDetails(card){
-
-      let details = card.querySelector(".details");
-
-      if(details.style.display === "block"){
-        details.style.display = "none";
-      }
-      else{
-        details.style.display = "block";
-      }
-
-    }
-
-    function searchCourses(){
-
-      let input = document.getElementById("courseSearch").value.toLowerCase();
-
-      let cards = document.querySelectorAll(".card");
-
-      cards.forEach(card => {
-
-        let text = card.innerText.toLowerCase();
-
-        if(text.includes(input)){
-          card.style.display = "block";
-        }
-        else{
-          card.style.display = "none";
-        }
-
-      });
-
-    }
-
-  </script>
+  <script src="script.js"></script>
 
 </body>
 
