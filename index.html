@@ -8,7 +8,11 @@
 
   <title>TS GROUP OF INSTITUTION</title>
 
+  <!-- GOOGLE FONT -->
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
 
   <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -50,7 +54,7 @@
       position:fixed;
       width:500px;
       height:500px;
-      background:#7b00ff;
+      background:#8a2eff;
       filter:blur(180px);
       bottom:-150px;
       right:-150px;
@@ -66,7 +70,7 @@
       display:flex;
       justify-content:space-between;
       flex-wrap:wrap;
-      gap:15px;
+      gap:10px;
       font-size:14px;
     }
 
@@ -113,8 +117,8 @@
     }
 
     nav ul{
-      list-style:none;
       display:flex;
+      list-style:none;
       gap:25px;
       flex-wrap:wrap;
     }
@@ -123,7 +127,6 @@
       color:white;
       text-decoration:none;
       transition:0.3s;
-      font-weight:500;
     }
 
     nav ul li a:hover{
@@ -138,7 +141,7 @@
       justify-content:center;
       align-items:center;
       text-align:center;
-      padding:100px 20px;
+      padding:120px 20px;
     }
 
     .hero-content{
@@ -146,14 +149,14 @@
     }
 
     .hero h1{
-      font-size:72px;
+      font-size:70px;
       line-height:1.2;
       margin-bottom:25px;
       font-weight:800;
     }
 
     .hero h1 span{
-      background:linear-gradient(90deg,#00d9ff,#8d63ff);
+      background:linear-gradient(90deg,#00d9ff,#8f6bff);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
     }
@@ -161,13 +164,13 @@
     .hero p{
       font-size:20px;
       line-height:1.8;
-      color:#d5d5d5;
+      color:#d8d8d8;
       margin-bottom:40px;
     }
 
     .hero-btn{
       display:inline-block;
-      padding:16px 38px;
+      padding:16px 40px;
       border-radius:50px;
       background:linear-gradient(90deg,#00d9ff,#005eff);
       color:white;
@@ -196,8 +199,8 @@
       padding:30px;
       border-radius:20px;
       min-width:220px;
-      transition:0.4s;
       border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
     }
 
     .stat-box:hover{
@@ -206,7 +209,7 @@
     }
 
     .stat-box h2{
-      font-size:42px;
+      font-size:40px;
       color:#00d9ff;
       margin-bottom:10px;
     }
@@ -219,7 +222,7 @@
 
     .section-title{
       text-align:center;
-      font-size:50px;
+      font-size:48px;
       margin-bottom:60px;
     }
 
@@ -250,7 +253,7 @@
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
       gap:35px;
     }
 
@@ -258,8 +261,8 @@
 
     .card{
       background:rgba(255,255,255,0.05);
-      padding:35px;
       border-radius:28px;
+      padding:35px;
       transition:0.4s;
       cursor:pointer;
       border:1px solid rgba(255,255,255,0.08);
@@ -288,7 +291,7 @@
     }
 
     .card p{
-      color:#d5d5d5;
+      color:#d8d8d8;
       line-height:1.7;
     }
 
@@ -321,156 +324,13 @@
       color:#d8d8d8;
     }
 
-    .info{
-      background:rgba(255,255,255,0.05);
-      padding:15px;
-      border-radius:15px;
-      line-height:1.8;
-      margin-top:15px;
-    }
-
     .fee{
-      margin-top:18px;
+      margin-top:20px;
+      background:linear-gradient(90deg,#00d9ff,#005eff);
       padding:14px;
       border-radius:15px;
       text-align:center;
-      background:linear-gradient(90deg,#00d9ff,#005eff);
       font-weight:600;
-    }
-
-    /* FACILITIES */
-
-    .facility-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .facility-card{
-      background:rgba(255,255,255,0.05);
-      padding:35px;
-      border-radius:25px;
-      text-align:center;
-      transition:0.4s;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .facility-card:hover{
-      transform:translateY(-10px);
-      border-color:#00d9ff;
-    }
-
-    .facility-card i{
-      font-size:50px;
-      color:#00d9ff;
-      margin-bottom:20px;
-    }
-
-    /* RECRUITERS */
-
-    .company-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:25px;
-    }
-
-    .company{
-      background:rgba(255,255,255,0.05);
-      padding:30px;
-      border-radius:20px;
-      text-align:center;
-      font-weight:700;
-      transition:0.4s;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .company:hover{
-      transform:translateY(-8px);
-      border-color:#00d9ff;
-    }
-
-    /* FORM */
-
-    .form-box{
-      max-width:900px;
-      margin:auto;
-      background:rgba(255,255,255,0.05);
-      padding:40px;
-      border-radius:30px;
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
-
-    .form-box input,
-    .form-box select,
-    .form-box textarea{
-      width:100%;
-      padding:16px;
-      border:none;
-      outline:none;
-      border-radius:15px;
-      background:rgba(255,255,255,0.08);
-      color:white;
-    }
-
-    .form-box textarea{
-      margin-top:20px;
-      height:150px;
-      resize:none;
-    }
-
-    .form-box button{
-      width:100%;
-      margin-top:20px;
-      padding:16px;
-      border:none;
-      border-radius:15px;
-      background:linear-gradient(90deg,#00d9ff,#005eff);
-      color:white;
-      font-size:17px;
-      font-weight:600;
-      cursor:pointer;
-    }
-
-    /* CHATBOT */
-
-    .ai-chatbot{
-      position:fixed;
-      right:25px;
-      bottom:100px;
-      width:70px;
-      height:70px;
-      border-radius:50%;
-      background:linear-gradient(90deg,#00d9ff,#005eff);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-size:30px;
-      cursor:pointer;
-      z-index:999;
-    }
-
-    /* WHATSAPP */
-
-    .whatsapp{
-      position:fixed;
-      right:25px;
-      bottom:20px;
-      width:65px;
-      height:65px;
-      border-radius:50%;
-      background:#25d366;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-size:32px;
-      color:white;
-      text-decoration:none;
-      z-index:999;
     }
 
     /* FOOTER */
@@ -478,10 +338,12 @@
     footer{
       text-align:center;
       padding:35px;
-      margin-top:60px;
+      margin-top:70px;
       border-top:1px solid rgba(255,255,255,0.08);
-      color:#d0d0d0;
+      color:#d5d5d5;
     }
+
+    /* MOBILE */
 
     @media(max-width:768px){
 
@@ -511,12 +373,15 @@
   <div class="topbar">
 
     <div>
-      <span><i class="fa-solid fa-phone"></i> +91 9876543210</span>
-      <span><i class="fa-solid fa-envelope"></i> admissions@tsgroup.edu</span>
+      <i class="fa-solid fa-phone"></i> +91 9345836377
     </div>
 
     <div>
-      <span><i class="fa-solid fa-location-dot"></i> Tamil Nadu, India</span>
+      <i class="fa-solid fa-envelope"></i> admissions@tsgroup.edu
+    </div>
+
+    <div>
+      <i class="fa-solid fa-location-dot"></i> Salem Tamil Nadu, India
     </div>
 
   </div>
@@ -524,7 +389,7 @@
   <!-- ANNOUNCEMENT -->
 
   <div class="announcement">
-    🎓 Admissions Open 2026 | Scholarships Available | 95% Placement Record
+    🎓 Admissions Open 2026 | Scholarships Available | 95% Placement
   </div>
 
   <!-- NAVBAR -->
@@ -538,9 +403,7 @@
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#institutions">Institutions</a></li>
-      <li><a href="#facilities">Facilities</a></li>
-      <li><a href="#placements">Placements</a></li>
-      <li><a href="#admission">Admission</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
 
   </nav>
@@ -556,9 +419,9 @@
       </h1>
 
       <p>
-        World-class educational institutions with smart classrooms,
-        innovation labs, advanced hospitals, placement support,
-        research centers and modern infrastructure.
+        Premium Educational Institutions with world-class infrastructure,
+        smart classrooms, modern laboratories, hospitals, placement support,
+        research centers and innovation hubs.
       </p>
 
       <a href="#institutions" class="hero-btn">
@@ -570,8 +433,8 @@
       <div class="stats">
 
         <div class="stat-box">
-          <h2>25+</h2>
-          <p>Years Experience</p>
+          <h2>40+</h2>
+          <p>Institutions</p>
         </div>
 
         <div class="stat-box">
@@ -581,7 +444,7 @@
 
         <div class="stat-box">
           <h2>500+</h2>
-          <p>Faculty</p>
+          <p>Faculty Members</p>
         </div>
 
         <div class="stat-box">
@@ -603,6 +466,8 @@
       Our <span>Institutions</span>
     </h1>
 
+    <!-- SEARCH -->
+
     <div class="search-box">
 
       <input type="text"
@@ -611,6 +476,8 @@
       onkeyup="searchCourses()">
 
     </div>
+
+    <!-- GRID -->
 
     <div class="grid">
 
@@ -625,75 +492,49 @@
           <ul>
             <li>B.E CSE</li>
             <li>B.Tech AI & DS</li>
-            <li>B.E ECE</li>
+            <li>B.E Mechanical</li>
           </ul>
 
-          <div class="info">
-            Placement : TCS, Infosys, Zoho
-          </div>
-
           <div class="fee">
-            Fees : ₹85,000 - ₹1,50,000 / Year
+            Fees : ₹85,000 - ₹1,80,000 / Year
           </div>
         </div>
       </div>
 
-      <!-- TECH -->
+      <!-- ARTS -->
 
       <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Technology College</h2>
-        <div class="badge">AICTE Approved</div>
-        <p>Modern technology programs with innovation centers.</p>
+        <h2>TS Arts College</h2>
+        <div class="badge">NAAC Accredited</div>
+        <p>Creative arts and humanities education.</p>
 
         <div class="details">
           <ul>
-            <li>B.Tech Cyber Security</li>
-            <li>B.Tech AI</li>
-            <li>B.Tech Data Science</li>
+            <li>BA English</li>
+            <li>BA History</li>
           </ul>
 
           <div class="fee">
-            Fees : ₹95,000 - ₹1,80,000 / Year
+            Fees : ₹35,000 - ₹70,000 / Year
           </div>
         </div>
       </div>
 
-      <!-- CAS -->
+      <!-- SCIENCE -->
 
       <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Arts & Science College</h2>
-        <div class="badge">NAAC A Grade</div>
-        <p>Premium arts and science programs.</p>
+        <h2>TS Science College</h2>
+        <div class="badge">Research Labs</div>
+        <p>Modern science education with advanced labs.</p>
 
         <div class="details">
           <ul>
-            <li>BCA</li>
-            <li>B.Sc Computer Science</li>
-            <li>B.Com</li>
+            <li>B.Sc Physics</li>
+            <li>B.Sc Chemistry</li>
           </ul>
 
           <div class="fee">
-            Fees : ₹45,000 - ₹95,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- NURSING -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Nursing College</h2>
-        <div class="badge">INC Approved</div>
-        <p>Nursing education with hospital training.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Sc Nursing</li>
-            <li>GNM</li>
-            <li>M.Sc Nursing</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,00,000 - ₹2,20,000 / Year
+            Fees : ₹40,000 - ₹85,000 / Year
           </div>
         </div>
       </div>
@@ -703,7 +544,7 @@
       <div class="card" onclick="toggleDetails(this)">
         <h2>TS Medical College</h2>
         <div class="badge">NMC Approved</div>
-        <p>Advanced medical education with hospital facilities.</p>
+        <p>Medical education with hospital training.</p>
 
         <div class="details">
           <ul>
@@ -723,7 +564,7 @@
       <div class="card" onclick="toggleDetails(this)">
         <h2>TS Dental College</h2>
         <div class="badge">DCI Approved</div>
-        <p>Modern dental education and oral healthcare labs.</p>
+        <p>Dental healthcare and surgery programs.</p>
 
         <div class="details">
           <ul>
@@ -737,37 +578,36 @@
         </div>
       </div>
 
+      <!-- NURSING -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Nursing College</h2>
+        <div class="badge">INC Approved</div>
+        <p>Nursing education with clinical training.</p>
+
+        <div class="details">
+          <ul>
+            <li>B.Sc Nursing</li>
+            <li>GNM</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹1,20,000 - ₹2,50,000 / Year
+          </div>
+        </div>
+      </div>
+
       <!-- PHARMACY -->
 
       <div class="card" onclick="toggleDetails(this)">
         <h2>TS Pharmacy College</h2>
         <div class="badge">PCI Approved</div>
-        <p>Pharmaceutical education with research labs.</p>
+        <p>Pharmaceutical research and education.</p>
 
         <div class="details">
           <ul>
             <li>B.Pharm</li>
             <li>M.Pharm</li>
-            <li>Pharm.D</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,20,000 - ₹3,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- PHYSIO -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Physiotherapy College</h2>
-        <div class="badge">Medical Rehabilitation Center</div>
-        <p>Rehabilitation and physiotherapy programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>BPT</li>
-            <li>MPT</li>
           </ul>
 
           <div class="fee">
@@ -781,52 +621,160 @@
       <div class="card" onclick="toggleDetails(this)">
         <h2>TS Law College</h2>
         <div class="badge">BCI Approved</div>
-        <p>Legal education with moot court facilities.</p>
+        <p>Legal studies with moot court training.</p>
 
         <div class="details">
           <ul>
             <li>LLB</li>
             <li>BA LLB</li>
-            <li>LLM</li>
           </ul>
 
           <div class="fee">
-            Fees : ₹80,000 - ₹2,00,000 / Year
+            Fees : ₹80,000 - ₹2,20,000 / Year
           </div>
         </div>
       </div>
 
-      <!-- EYE -->
+      <!-- POLYTECHNIC -->
 
       <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Eye Care College</h2>
-        <div class="badge">Vision Science Institute</div>
-        <p>Eye care and ophthalmology education.</p>
+        <h2>TS Polytechnic College</h2>
+        <div class="badge">Diploma Programs</div>
+        <p>Technical diploma education with workshops.</p>
 
         <div class="details">
           <ul>
-            <li>B.Optom</li>
-            <li>M.Optom</li>
+            <li>Diploma Mechanical</li>
+            <li>Diploma Civil</li>
           </ul>
 
           <div class="fee">
-            Fees : ₹1,20,000 - ₹2,80,000 / Year
+            Fees : ₹40,000 - ₹90,000 / Year
           </div>
         </div>
       </div>
 
-      <!-- MBA -->
+      <!-- ITI -->
 
       <div class="card" onclick="toggleDetails(this)">
-        <h2>TS MBA College</h2>
+        <h2>TS ITI College</h2>
+        <div class="badge">Skill Development</div>
+        <p>Industrial and vocational training programs.</p>
+
+        <div class="details">
+          <ul>
+            <li>Electrician</li>
+            <li>Welder</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹25,000 - ₹60,000 / Year
+          </div>
+        </div>
+      </div>
+
+      <!-- AGRICULTURE -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Agriculture College</h2>
+        <div class="badge">Agri Research Center</div>
+        <p>Modern agriculture and farming education.</p>
+
+        <div class="details">
+          <ul>
+            <li>B.Sc Agriculture</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹90,000 - ₹2,00,000 / Year
+          </div>
+        </div>
+      </div>
+
+      <!-- VETERINARY -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Veterinary College</h2>
+        <div class="badge">Animal Healthcare</div>
+        <p>Veterinary medicine and surgery programs.</p>
+
+        <div class="details">
+          <ul>
+            <li>BVSc</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹1,50,000 - ₹3,50,000 / Year
+          </div>
+        </div>
+      </div>
+
+      <!-- ARCHITECTURE -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Architecture College</h2>
+        <div class="badge">COA Approved</div>
+        <p>Architecture and interior design programs.</p>
+
+        <div class="details">
+          <ul>
+            <li>B.Arch</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹1,50,000 - ₹4,00,000 / Year
+          </div>
+        </div>
+      </div>
+
+      <!-- DESIGN -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Design College</h2>
+        <div class="badge">Creative Studio</div>
+        <p>Creative and digital design education.</p>
+
+        <div class="details">
+          <ul>
+            <li>Graphic Design</li>
+            <li>UI/UX Design</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹1,00,000 - ₹2,50,000 / Year
+          </div>
+        </div>
+      </div>
+
+      <!-- AVIATION -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Aviation College</h2>
+        <div class="badge">Aviation Training Campus</div>
+        <p>Pilot and aviation management programs.</p>
+
+        <div class="details">
+          <ul>
+            <li>B.Sc Aviation</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹2,00,000 - ₹6,00,000 / Year
+          </div>
+        </div>
+      </div>
+
+      <!-- MANAGEMENT -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Management College</h2>
         <div class="badge">AICTE Approved</div>
-        <p>Business administration with corporate training.</p>
+        <p>Management education with corporate training.</p>
 
         <div class="details">
           <ul>
             <li>MBA HR</li>
             <li>MBA Finance</li>
-            <li>MBA Marketing</li>
           </ul>
 
           <div class="fee">
@@ -835,12 +783,68 @@
         </div>
       </div>
 
-      <!-- TN SCHOOL -->
+      <!-- PHYSIOTHERAPY -->
 
       <div class="card" onclick="toggleDetails(this)">
-        <h2>TS School (TN Syllabus)</h2>
-        <div class="badge">Tamil Nadu State Board</div>
-        <p>Quality education with smart classrooms.</p>
+        <h2>TS Physiotherapy College</h2>
+        <div class="badge">Rehabilitation Center</div>
+        <p>Physiotherapy and rehabilitation programs.</p>
+
+        <div class="details">
+          <ul>
+            <li>BPT</li>
+            <li>MPT</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹1,20,000 - ₹2,50,000 / Year
+          </div>
+        </div>
+      </div>
+
+      <!-- PARAMEDICAL -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Paramedical College</h2>
+        <div class="badge">Medical Support Training</div>
+        <p>Emergency and medical support education.</p>
+
+        <div class="details">
+          <ul>
+            <li>Diploma Paramedical</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹80,000 - ₹2,00,000 / Year
+          </div>
+        </div>
+      </div>
+
+      <!-- RESEARCH -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS Research Institute</h2>
+        <div class="badge">Innovation & Research</div>
+        <p>Advanced interdisciplinary research programs.</p>
+
+        <div class="details">
+          <ul>
+            <li>Ph.D Programs</li>
+            <li>Research Fellowships</li>
+          </ul>
+
+          <div class="fee">
+            Fees : ₹1,50,000 - ₹5,00,000 / Year
+          </div>
+        </div>
+      </div>
+
+      <!-- SCHOOL MATRIC -->
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h2>TS School Matric</h2>
+        <div class="badge">Matriculation Curriculum</div>
+        <p>Smart education with modern classrooms.</p>
 
         <div class="details">
           <ul>
@@ -850,7 +854,7 @@
           </ul>
 
           <div class="fee">
-            Fees : ₹25,000 - ₹70,000 / Year
+            Fees : ₹25,000 - ₹80,000 / Year
           </div>
         </div>
       </div>
@@ -865,7 +869,6 @@
         <div class="details">
           <ul>
             <li>Primary Education</li>
-            <li>Middle School</li>
             <li>Senior Secondary</li>
           </ul>
 
@@ -875,138 +878,15 @@
         </div>
       </div>
 
-      <!-- YOGA -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Yoga & Naturopathy College</h2>
-        <div class="badge">Holistic Wellness Campus</div>
-        <p>Natural healing and yoga science programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>BNYS</li>
-            <li>Diploma in Yoga</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,00,000 - ₹2,50,000 / Year
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FACILITIES -->
-
-  <section class="section" id="facilities">
-
-    <h1 class="section-title">
-      Campus <span>Facilities</span>
-    </h1>
-
-    <div class="facility-grid">
-
-      <div class="facility-card">
-        <i class="fa-solid fa-wifi"></i>
-        <h2>High-Speed WiFi</h2>
-      </div>
-
-      <div class="facility-card">
-        <i class="fa-solid fa-bed"></i>
-        <h2>Hostel Facilities</h2>
-      </div>
-
-      <div class="facility-card">
-        <i class="fa-solid fa-flask"></i>
-        <h2>Research Labs</h2>
-      </div>
-
-      <div class="facility-card">
-        <i class="fa-solid fa-book"></i>
-        <h2>Digital Library</h2>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- RECRUITERS -->
-
-  <section class="section" id="placements">
-
-    <h1 class="section-title">
-      Top <span>Recruiters</span>
-    </h1>
-
-    <div class="company-grid">
-
-      <div class="company">TCS</div>
-      <div class="company">Infosys</div>
-      <div class="company">Zoho</div>
-      <div class="company">Wipro</div>
-      <div class="company">Amazon</div>
-      <div class="company">HCL</div>
-
-    </div>
-
-  </section>
-
-  <!-- ADMISSION -->
-
-  <section class="section" id="admission">
-
-    <h1 class="section-title">
-      Apply For <span>Admission</span>
-    </h1>
-
-    <div class="form-box">
-
-      <div class="form-grid">
-
-        <input type="text" placeholder="Student Name">
-
-        <input type="email" placeholder="Email Address">
-
-        <input type="tel" placeholder="Mobile Number">
-
-        <select>
-          <option>Select Institution</option>
-          <option>Engineering College</option>
-          <option>Medical College</option>
-          <option>Nursing College</option>
-        </select>
-
-      </div>
-
-      <textarea placeholder="Write Your Message"></textarea>
-
-      <button>
-        Submit Application
-      </button>
-
     </div>
 
   </section>
 
   <!-- FOOTER -->
 
-  <footer>
+  <footer id="contact">
     © 2026 TS GROUP OF INSTITUTION | All Rights Reserved
   </footer>
-
-  <!-- CHATBOT -->
-
-  <div class="ai-chatbot">
-    <i class="fa-solid fa-robot"></i>
-  </div>
-
-  <!-- WHATSAPP -->
-
-  <a href="#" class="whatsapp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
 
   <!-- SCRIPT -->
 
