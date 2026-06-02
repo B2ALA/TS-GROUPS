@@ -1,12 +1,10 @@
-<!-- PASTE THIS COMPLETE FILE -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>TS GROUP OF INSTITUTION</title>
 
@@ -45,7 +43,7 @@
       position:fixed;
       width:500px;
       height:500px;
-      background:#00cfff;
+      background:#00d9ff;
       filter:blur(180px);
       top:-120px;
       left:-120px;
@@ -69,20 +67,37 @@
     /* TOPBAR */
 
     .topbar{
-      background:linear-gradient(90deg,#00cfff,#005eff);
+      background:linear-gradient(90deg,#00d9ff,#005eff);
       padding:12px 8%;
       display:flex;
       justify-content:space-between;
-      align-items:center;
       flex-wrap:wrap;
-      gap:15px;
+      gap:10px;
       font-size:14px;
+      color:white;
     }
 
     .topbar div{
       display:flex;
       gap:20px;
       flex-wrap:wrap;
+    }
+
+    /* ANNOUNCEMENT */
+
+    .announcement{
+      background:#00d9ff;
+      color:#00111f;
+      text-align:center;
+      padding:12px;
+      font-weight:700;
+      animation:blink 2s infinite;
+    }
+
+    @keyframes blink{
+      50%{
+        opacity:0.7;
+      }
     }
 
     /* NAVBAR */
@@ -95,8 +110,8 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      backdrop-filter:blur(12px);
       background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(255,255,255,0.08);
       z-index:999;
     }
@@ -121,6 +136,7 @@
       color:white;
       text-decoration:none;
       transition:0.3s;
+      font-weight:500;
     }
 
     nav ul li a:hover{
@@ -157,8 +173,8 @@
 
     .hero p{
       color:#d8d8d8;
-      line-height:1.8;
       font-size:20px;
+      line-height:1.8;
       margin-bottom:40px;
     }
 
@@ -166,9 +182,9 @@
       display:inline-block;
       padding:16px 38px;
       border-radius:50px;
-      text-decoration:none;
       background:linear-gradient(90deg,#00d9ff,#005eff);
       color:white;
+      text-decoration:none;
       font-weight:600;
       transition:0.4s;
       box-shadow:0 0 25px rgba(0,217,255,0.4);
@@ -194,8 +210,8 @@
       padding:30px;
       border-radius:20px;
       min-width:220px;
-      backdrop-filter:blur(10px);
       transition:0.4s;
+      backdrop-filter:blur(10px);
     }
 
     .stat-box:hover{
@@ -226,7 +242,26 @@
       color:#00d9ff;
     }
 
-    /* GRID */
+    /* SEARCH */
+
+    .search-box{
+      max-width:700px;
+      margin:auto;
+      margin-bottom:50px;
+    }
+
+    .search-box input{
+      width:100%;
+      padding:18px;
+      border:none;
+      outline:none;
+      border-radius:50px;
+      background:rgba(255,255,255,0.08);
+      color:white;
+      font-size:18px;
+    }
+
+    /* CARD GRID */
 
     .grid{
       display:grid;
@@ -241,8 +276,8 @@
       border:1px solid rgba(255,255,255,0.08);
       border-radius:28px;
       padding:35px;
-      cursor:pointer;
       transition:0.4s;
+      cursor:pointer;
       backdrop-filter:blur(12px);
     }
 
@@ -264,51 +299,21 @@
       color:#00d9ff;
       padding:8px 18px;
       border-radius:30px;
-      font-size:14px;
       margin-bottom:20px;
+      font-size:14px;
     }
 
     .card p{
+      color:#d5d5d5;
       line-height:1.7;
-      color:#d4d4d4;
     }
 
     /* DETAILS */
 
     .details{
       display:none;
-      margin-top:25px;
+      margin-top:20px;
       animation:fade 0.5s ease;
-    }
-
-    .details h3{
-      margin:18px 0 10px;
-    }
-
-    .details ul{
-      padding-left:18px;
-    }
-
-    .details ul li{
-      margin-bottom:10px;
-      color:#d8d8d8;
-    }
-
-    .info{
-      background:rgba(255,255,255,0.05);
-      padding:15px;
-      border-radius:15px;
-      line-height:1.8;
-      margin-top:15px;
-    }
-
-    .fee{
-      margin-top:18px;
-      background:linear-gradient(90deg,#00d9ff,#005eff);
-      padding:14px;
-      text-align:center;
-      border-radius:15px;
-      font-weight:600;
     }
 
     @keyframes fade{
@@ -322,65 +327,91 @@
       }
     }
 
-    /* RANKING */
+    .details h3{
+      margin:18px 0 10px;
+    }
 
-    .rank-grid{
+    .details ul{
+      padding-left:20px;
+    }
+
+    .details ul li{
+      margin-bottom:10px;
+      color:#d7d7d7;
+    }
+
+    .info{
+      background:rgba(255,255,255,0.05);
+      padding:15px;
+      border-radius:15px;
+      margin-top:15px;
+      line-height:1.8;
+    }
+
+    .fee{
+      margin-top:18px;
+      background:linear-gradient(90deg,#00d9ff,#005eff);
+      padding:14px;
+      border-radius:15px;
+      text-align:center;
+      font-weight:600;
+    }
+
+    /* RANK */
+
+    .rank-grid,
+    .testimonial-grid,
+    .facility-grid,
+    .scholarship-grid,
+    .company-grid,
+    .gallery-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       gap:30px;
     }
 
-    .rank-card{
+    .rank-card,
+    .facility-card,
+    .scholar-card,
+    .company,
+    .testimonial-card{
       background:rgba(255,255,255,0.05);
-      padding:35px;
       border-radius:25px;
+      padding:35px;
       text-align:center;
-      border:1px solid rgba(255,255,255,0.08);
       transition:0.4s;
+      border:1px solid rgba(255,255,255,0.08);
     }
 
-    .rank-card:hover{
+    .rank-card:hover,
+    .facility-card:hover,
+    .scholar-card:hover,
+    .company:hover,
+    .testimonial-card:hover{
       transform:translateY(-10px);
       border-color:#00d9ff;
     }
 
-    .rank-card i{
+    .rank-card i,
+    .facility-card i,
+    .scholar-card i{
       font-size:55px;
       color:#00d9ff;
       margin-bottom:20px;
     }
 
-    /* PLACEMENT */
+    /* TESTIMONIAL */
 
-    .company-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:25px;
-    }
-
-    .company{
-      background:rgba(255,255,255,0.05);
-      padding:30px;
-      border-radius:20px;
-      text-align:center;
-      font-size:22px;
-      font-weight:700;
-      transition:0.4s;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .company:hover{
-      transform:translateY(-8px);
-      border-color:#00d9ff;
+    .testimonial-card img{
+      width:100px;
+      height:100px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:20px;
+      border:4px solid #00d9ff;
     }
 
     /* GALLERY */
-
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
-    }
 
     .gallery-card{
       overflow:hidden;
@@ -398,13 +429,26 @@
       transform:scale(1.1);
     }
 
+    /* VIDEO */
+
+    .video-box{
+      overflow:hidden;
+      border-radius:30px;
+    }
+
+    .video-box video{
+      width:100%;
+      height:600px;
+      object-fit:cover;
+    }
+
     /* NEWS */
 
     .news-box{
       background:rgba(255,255,255,0.05);
       padding:25px;
-      border-radius:20px;
       border-left:5px solid #00d9ff;
+      border-radius:20px;
       margin-bottom:20px;
     }
 
@@ -416,7 +460,6 @@
       background:rgba(255,255,255,0.05);
       padding:40px;
       border-radius:30px;
-      border:1px solid rgba(255,255,255,0.08);
     }
 
     .form-grid{
@@ -438,9 +481,9 @@
     }
 
     .form-box textarea{
-      margin-top:20px;
       height:150px;
       resize:none;
+      margin-top:20px;
     }
 
     .form-box button{
@@ -452,8 +495,93 @@
       background:linear-gradient(90deg,#00d9ff,#005eff);
       color:white;
       font-size:17px;
-      cursor:pointer;
       font-weight:600;
+      cursor:pointer;
+    }
+
+    /* CHATBOT */
+
+    .ai-chatbot{
+      position:fixed;
+      right:25px;
+      bottom:100px;
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background:linear-gradient(90deg,#00d9ff,#005eff);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:30px;
+      cursor:pointer;
+      z-index:999;
+    }
+
+    .chatbot-box{
+      position:fixed;
+      right:25px;
+      bottom:180px;
+      width:350px;
+      background:#081726;
+      border-radius:20px;
+      overflow:hidden;
+      display:none;
+      z-index:999;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .chat-header{
+      background:#00d9ff;
+      color:#00111f;
+      padding:15px;
+      font-weight:700;
+      display:flex;
+      justify-content:space-between;
+    }
+
+    .chat-body{
+      padding:20px;
+      height:250px;
+    }
+
+    .chat-footer{
+      display:flex;
+      gap:10px;
+      padding:15px;
+    }
+
+    .chat-footer input{
+      flex:1;
+      padding:12px;
+      border:none;
+      border-radius:10px;
+    }
+
+    .chat-footer button{
+      padding:12px 18px;
+      border:none;
+      border-radius:10px;
+      background:#00d9ff;
+      font-weight:600;
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp{
+      position:fixed;
+      right:25px;
+      bottom:20px;
+      width:65px;
+      height:65px;
+      border-radius:50%;
+      background:#25d366;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:32px;
+      color:white;
+      text-decoration:none;
+      z-index:999;
     }
 
     /* FOOTER */
@@ -466,25 +594,6 @@
       color:#d0d0d0;
     }
 
-    /* WHATSAPP */
-
-    .whatsapp{
-      position:fixed;
-      right:25px;
-      bottom:25px;
-      width:65px;
-      height:65px;
-      background:#25d366;
-      border-radius:50%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      color:white;
-      font-size:32px;
-      text-decoration:none;
-      z-index:999;
-    }
-
     /* MOBILE */
 
     @media(max-width:768px){
@@ -494,7 +603,7 @@
       }
 
       .section-title{
-        font-size:35px;
+        font-size:34px;
       }
 
       nav{
@@ -503,8 +612,8 @@
       }
 
       .topbar{
-        text-align:center;
         justify-content:center;
+        text-align:center;
       }
 
     }
@@ -530,6 +639,12 @@
 
   </div>
 
+  <!-- ANNOUNCEMENT -->
+
+  <div class="announcement">
+    🎓 Admissions Open 2026 | Scholarships Available | 95% Placement Record | Apply Now
+  </div>
+
   <!-- NAVBAR -->
 
   <nav>
@@ -541,7 +656,6 @@
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#institutions">Institutions</a></li>
-      <li><a href="#ranking">Ranking</a></li>
       <li><a href="#placement">Placement</a></li>
       <li><a href="#admission">Admission</a></li>
     </ul>
@@ -559,9 +673,9 @@
       </h1>
 
       <p>
-        Premium educational institutions with world-class infrastructure,
-        innovation labs, smart classrooms, research centers,
-        global placement support and modern learning systems.
+        World-class educational institutions with smart classrooms,
+        innovation labs, research centers, placement support,
+        premium infrastructure and advanced learning systems.
       </p>
 
       <a href="#institutions" class="hero-btn">
@@ -574,7 +688,7 @@
 
         <div class="stat-box">
           <h2>25+</h2>
-          <p>Years of Excellence</p>
+          <p>Years Experience</p>
         </div>
 
         <div class="stat-box">
@@ -584,12 +698,12 @@
 
         <div class="stat-box">
           <h2>500+</h2>
-          <p>Faculty Members</p>
+          <p>Faculty</p>
         </div>
 
         <div class="stat-box">
           <h2>95%</h2>
-          <p>Placement Record</p>
+          <p>Placements</p>
         </div>
 
       </div>
@@ -598,13 +712,22 @@
 
   </section>
 
-  <!-- INSTITUTIONS -->
+  <!-- COURSE SEARCH -->
 
   <section class="section" id="institutions">
 
     <h1 class="section-title">
       Our <span>Institutions</span>
     </h1>
+
+    <div class="search-box">
+
+      <input type="text"
+      id="courseSearch"
+      placeholder="Search Engineering, MBA, MBBS..."
+      onkeyup="searchCourses()">
+
+    </div>
 
     <div class="grid">
 
@@ -619,7 +742,7 @@
         </div>
 
         <p>
-          Premium engineering education with innovation labs and placements.
+          Premium engineering programs with modern innovation labs.
         </p>
 
         <div class="details">
@@ -628,16 +751,15 @@
 
           <ul>
             <li>B.E CSE</li>
-            <li>B.E ECE</li>
-            <li>B.E EEE</li>
             <li>B.Tech AI & DS</li>
-            <li>B.Tech IT</li>
+            <li>B.E ECE</li>
+            <li>B.E Mechanical</li>
           </ul>
 
           <div class="info">
             <b>Affiliation :</b> Anna University<br>
-            <b>Approval :</b> AICTE Approved<br>
-            <b>Placement :</b> TCS, Infosys, Zoho
+            <b>Placement :</b> TCS, Infosys, Wipro<br>
+            <b>Labs :</b> AI, Robotics, IoT Labs
           </div>
 
           <div class="fee">
@@ -659,7 +781,7 @@
         </div>
 
         <p>
-          Industry-focused business management programs.
+          Industry-focused management education.
         </p>
 
         <div class="details">
@@ -671,8 +793,8 @@
           </ul>
 
           <div class="info">
-            <b>Training :</b> Live Projects & Internship<br>
-            <b>Placement :</b> Corporate Recruitment
+            <b>Internship :</b> Live Industry Projects<br>
+            <b>Placement :</b> Corporate Training
           </div>
 
           <div class="fee">
@@ -694,7 +816,7 @@
         </div>
 
         <p>
-          Advanced medical education and hospital training.
+          Medical education with hospital training.
         </p>
 
         <div class="details">
@@ -707,7 +829,7 @@
 
           <div class="info">
             <b>Hospital :</b> Multi-Speciality Hospital<br>
-            <b>Facilities :</b> Modern Research Labs
+            <b>Labs :</b> Advanced Medical Labs
           </div>
 
           <div class="fee">
@@ -722,9 +844,9 @@
 
   </section>
 
-  <!-- RANKING -->
+  <!-- RANKINGS -->
 
-  <section class="section" id="ranking">
+  <section class="section">
 
     <h1 class="section-title">
       Rankings & <span>Accreditations</span>
@@ -741,20 +863,38 @@
       <div class="rank-card">
         <i class="fa-solid fa-building-columns"></i>
         <h2>NBA Accredited</h2>
-        <p>Engineering programs with high standards.</p>
+        <p>High-quality engineering standards.</p>
       </div>
 
       <div class="rank-card">
         <i class="fa-solid fa-graduation-cap"></i>
         <h2>AICTE Approved</h2>
-        <p>Government approved technical education.</p>
+        <p>Government approved technical institution.</p>
       </div>
 
     </div>
 
   </section>
 
-  <!-- PLACEMENT -->
+  <!-- VIDEO -->
+
+  <section class="section">
+
+    <h1 class="section-title">
+      Virtual <span>Campus Tour</span>
+    </h1>
+
+    <div class="video-box">
+
+      <video autoplay muted loop playsinline>
+        <source src="https://cdn.coverr.co/videos/coverr-students-walking-through-campus-1567348761174?download=1080p.mp4" type="video/mp4">
+      </video>
+
+    </div>
+
+  </section>
+
+  <!-- PLACEMENTS -->
 
   <section class="section" id="placement">
 
@@ -770,6 +910,140 @@
       <div class="company">Zoho</div>
       <div class="company">Amazon</div>
       <div class="company">HCL</div>
+
+    </div>
+
+  </section>
+
+  <!-- TESTIMONIALS -->
+
+  <section class="section">
+
+    <h1 class="section-title">
+      Student <span>Testimonials</span>
+    </h1>
+
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+
+        <img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+        <h2>Arun Kumar</h2>
+
+        <p>
+          TS Engineering College provided excellent placement opportunities.
+        </p>
+
+      </div>
+
+      <div class="testimonial-card">
+
+        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+        <h2>Priya Sharma</h2>
+
+        <p>
+          Smart classrooms and advanced labs are amazing.
+        </p>
+
+      </div>
+
+      <div class="testimonial-card">
+
+        <img src="https://randomuser.me/api/portraits/men/51.jpg">
+
+        <h2>Rahul Das</h2>
+
+        <p>
+          MBA training helped me get placed in a multinational company.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SCHOLARSHIP -->
+
+  <section class="section">
+
+    <h1 class="section-title">
+      Scholarship <span>Programs</span>
+    </h1>
+
+    <div class="scholarship-grid">
+
+      <div class="scholar-card">
+
+        <i class="fa-solid fa-medal"></i>
+
+        <h2>Merit Scholarship</h2>
+
+        <p>
+          Up to 100% fee waiver for top students.
+        </p>
+
+      </div>
+
+      <div class="scholar-card">
+
+        <i class="fa-solid fa-users"></i>
+
+        <h2>Sports Scholarship</h2>
+
+        <p>
+          Special support for sports achievers.
+        </p>
+
+      </div>
+
+      <div class="scholar-card">
+
+        <i class="fa-solid fa-book-open"></i>
+
+        <h2>Research Grant</h2>
+
+        <p>
+          Funding support for student projects.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FACILITIES -->
+
+  <section class="section">
+
+    <h1 class="section-title">
+      Hostel <span>Facilities</span>
+    </h1>
+
+    <div class="facility-grid">
+
+      <div class="facility-card">
+        <i class="fa-solid fa-bed"></i>
+        <h2>AC Rooms</h2>
+      </div>
+
+      <div class="facility-card">
+        <i class="fa-solid fa-wifi"></i>
+        <h2>High-Speed WiFi</h2>
+      </div>
+
+      <div class="facility-card">
+        <i class="fa-solid fa-utensils"></i>
+        <h2>Healthy Food</h2>
+      </div>
+
+      <div class="facility-card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h2>24/7 Security</h2>
+      </div>
 
     </div>
 
@@ -811,12 +1085,12 @@
 
     <div class="news-box">
       <h2>Admissions Open 2026</h2>
-      <p>Applications open for Engineering, MBA, Medical & Nursing.</p>
+      <p>Applications open for Engineering, MBA and Medical programs.</p>
     </div>
 
     <div class="news-box">
       <h2>Placement Drive</h2>
-      <p>Top MNC companies visiting our campus this year.</p>
+      <p>Top MNC companies visiting campus this year.</p>
     </div>
 
   </section>
@@ -864,6 +1138,34 @@
     © 2026 TS GROUP OF INSTITUTION | All Rights Reserved
   </footer>
 
+  <!-- CHATBOT -->
+
+  <div class="ai-chatbot" onclick="openChatbot()">
+    <i class="fa-solid fa-robot"></i>
+  </div>
+
+  <div class="chatbot-box" id="chatbot">
+
+    <div class="chat-header">
+      TS AI Assistant
+      <span onclick="closeChatbot()">✖</span>
+    </div>
+
+    <div class="chat-body">
+      <p>👋 Welcome to TS Group Of Institution</p>
+      <p>Ask about Courses, Fees, Hostel, Admission & Placements.</p>
+    </div>
+
+    <div class="chat-footer">
+
+      <input type="text" placeholder="Type your message...">
+
+      <button>Send</button>
+
+    </div>
+
+  </div>
+
   <!-- WHATSAPP -->
 
   <a href="#" class="whatsapp">
@@ -885,6 +1187,35 @@
         details.style.display = "block";
       }
 
+    }
+
+    function searchCourses(){
+
+      let input = document.getElementById("courseSearch").value.toLowerCase();
+
+      let cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+
+        let text = card.innerText.toLowerCase();
+
+        if(text.includes(input)){
+          card.style.display = "block";
+        }
+        else{
+          card.style.display = "none";
+        }
+
+      });
+
+    }
+
+    function openChatbot(){
+      document.getElementById("chatbot").style.display = "block";
+    }
+
+    function closeChatbot(){
+      document.getElementById("chatbot").style.display = "none";
     }
 
   </script>
