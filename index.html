@@ -1,991 +1,1490 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>TS GROUP OF INSTITUTION</title>
-
-  <!-- GOOGLE FONT -->
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- FONT AWESOME -->
-
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      background:#07111f;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    body::before{
-      content:'';
-      position:fixed;
-      width:500px;
-      height:500px;
-      background:#00d9ff;
-      filter:blur(180px);
-      top:-150px;
-      left:-150px;
-      opacity:0.3;
-      z-index:-1;
-    }
-
-    body::after{
-      content:'';
-      position:fixed;
-      width:500px;
-      height:500px;
-      background:#8a2eff;
-      filter:blur(180px);
-      bottom:-150px;
-      right:-150px;
-      opacity:0.3;
-      z-index:-1;
-    }
-
-    /* TOPBAR */
-
-    .topbar{
-      background:linear-gradient(90deg,#00d9ff,#005eff);
-      padding:12px 8%;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:10px;
-      font-size:14px;
-    }
-
-    /* ANNOUNCEMENT */
-
-    .announcement{
-      background:#00d9ff;
-      color:#00111f;
-      text-align:center;
-      padding:12px;
-      font-weight:700;
-      animation:blink 2s infinite;
-    }
-
-    @keyframes blink{
-      50%{
-        opacity:0.7;
-      }
-    }
-
-    /* NAVBAR */
-
-    nav{
-      position:sticky;
-      top:0;
-      width:100%;
-      padding:18px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(255,255,255,0.05);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      z-index:999;
-    }
-
-    .logo{
-      font-size:34px;
-      font-weight:800;
-    }
-
-    .logo span{
-      color:#00d9ff;
-    }
-
-    nav ul{
-      display:flex;
-      list-style:none;
-      gap:25px;
-      flex-wrap:wrap;
-    }
-
-    nav ul li a{
-      color:white;
-      text-decoration:none;
-      transition:0.3s;
-    }
-
-    nav ul li a:hover{
-      color:#00d9ff;
-    }
-
-    /* HERO */
-
-    .hero{
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:120px 20px;
-    }
-
-    .hero-content{
-      max-width:1100px;
-    }
-
-    .hero h1{
-      font-size:70px;
-      line-height:1.2;
-      margin-bottom:25px;
-      font-weight:800;
-    }
-
-    .hero h1 span{
-      background:linear-gradient(90deg,#00d9ff,#8f6bff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .hero p{
-      font-size:20px;
-      line-height:1.8;
-      color:#d8d8d8;
-      margin-bottom:40px;
-    }
-
-    .hero-btn{
-      display:inline-block;
-      padding:16px 40px;
-      border-radius:50px;
-      background:linear-gradient(90deg,#00d9ff,#005eff);
-      color:white;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.4s;
-      box-shadow:0 0 25px rgba(0,217,255,0.4);
-    }
-
-    .hero-btn:hover{
-      transform:translateY(-5px);
-    }
-
-    /* STATS */
-
-    .stats{
-      margin-top:60px;
-      display:flex;
-      justify-content:center;
-      gap:25px;
-      flex-wrap:wrap;
-    }
-
-    .stat-box{
-      background:rgba(255,255,255,0.05);
-      padding:30px;
-      border-radius:20px;
-      min-width:220px;
-      border:1px solid rgba(255,255,255,0.08);
-      transition:0.4s;
-    }
-
-    .stat-box:hover{
-      transform:translateY(-10px);
-      border-color:#00d9ff;
-    }
-
-    .stat-box h2{
-      font-size:40px;
-      color:#00d9ff;
-      margin-bottom:10px;
-    }
-
-    /* SECTION */
-
-    .section{
-      padding:90px 8%;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:48px;
-      margin-bottom:60px;
-    }
-
-    .section-title span{
-      color:#00d9ff;
-    }
-
-    /* SEARCH */
-
-    .search-box{
-      max-width:700px;
-      margin:auto;
-      margin-bottom:50px;
-    }
-
-    .search-box input{
-      width:100%;
-      padding:18px;
-      border:none;
-      outline:none;
-      border-radius:50px;
-      background:rgba(255,255,255,0.08);
-      color:white;
-      font-size:18px;
-    }
-
-    /* GRID */
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-      gap:35px;
-    }
-
-    /* CARD */
-
-    .card{
-      background:rgba(255,255,255,0.05);
-      border-radius:28px;
-      padding:35px;
-      transition:0.4s;
-      cursor:pointer;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .card:hover{
-      transform:translateY(-10px);
-      border-color:#00d9ff;
-      box-shadow:0 0 30px rgba(0,217,255,0.15);
-    }
-
-    .card h2{
-      color:#00d9ff;
-      margin-bottom:15px;
-      font-size:28px;
-    }
-
-    .badge{
-      display:inline-block;
-      padding:8px 18px;
-      border-radius:30px;
-      background:rgba(0,217,255,0.12);
-      color:#00d9ff;
-      margin-bottom:20px;
-      font-size:14px;
-    }
-
-    .card p{
-      color:#d8d8d8;
-      line-height:1.7;
-    }
-
-    /* DETAILS */
-
-    .details{
-      display:none;
-      margin-top:20px;
-      animation:fade 0.5s ease;
-    }
-
-    @keyframes fade{
-      from{
-        opacity:0;
-        transform:translateY(10px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    .details ul{
-      padding-left:20px;
-      margin-top:15px;
-    }
-
-    .details ul li{
-      margin-bottom:10px;
-      color:#d8d8d8;
-    }
-    .contact-btn{
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  color: #ffffff;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  transition: 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TS GROUP OF INSTITUTION</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#07111f;--bg2:#0d1e30;--bg3:#122540;
+  --card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--border-hover:#00d9ff;
+  --text:#ffffff;--text2:#b0c4d8;--text3:#6b8499;
+  --accent:#00d9ff;--accent2:#005eff;--purple:#8a2eff;
+  --gradient:linear-gradient(135deg,#00d9ff,#005eff);
+  --shadow:0 0 40px rgba(0,217,255,0.12);
 }
-
-.contact-btn:hover{
-  transform: translateY(-3px);
-  background: linear-gradient(135deg, #0072ff, #00c6ff);
+[data-theme="light"]{
+  --bg:#f0f4f8;--bg2:#ffffff;--bg3:#e2eaf2;
+  --card:rgba(255,255,255,0.9);--border:rgba(0,0,0,0.1);--border-hover:#0088aa;
+  --text:#0a1929;--text2:#334e68;--text3:#627d98;
+  --accent:#0077aa;--accent2:#0044cc;--purple:#6a14cc;
+  --gradient:linear-gradient(135deg,#0077aa,#0044cc);
+  --shadow:0 4px 24px rgba(0,100,150,0.15);
 }
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;transition:background 0.4s,color 0.4s;}
+[data-theme="dark"] body::before{content:'';position:fixed;width:700px;height:700px;background:#00d9ff;filter:blur(220px);top:-250px;left:-250px;opacity:0.06;z-index:-1;pointer-events:none;}
+[data-theme="dark"] body::after{content:'';position:fixed;width:700px;height:700px;background:#8a2eff;filter:blur(220px);bottom:-250px;right:-250px;opacity:0.06;z-index:-1;pointer-events:none;}
 
-    .fee{
-      margin-top:20px;
-      background:linear-gradient(90deg,#00d9ff,#005eff);
-      padding:14px;
-      border-radius:15px;
-      text-align:center;
-      font-weight:600;
-    }
+/* TOPBAR */
+.topbar{background:var(--gradient);padding:10px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px;}
+.topbar a{color:white;text-decoration:none;}
+.topbar-right{display:flex;gap:18px;align-items:center;}
+.topbar-badge{background:rgba(255,255,255,0.2);padding:3px 12px;border-radius:20px;font-weight:600;font-size:12px;}
 
-    /* FOOTER */
+/* ANNOUNCEMENT */
+.announcement{background:#00c8ee;color:#001a24;text-align:center;padding:9px;font-weight:600;font-size:13px;overflow:hidden;}
+.marquee-inner{display:inline-block;animation:marquee 22s linear infinite;}
+@keyframes marquee{0%{transform:translateX(60vw)}100%{transform:translateX(-100%)}}
 
-    footer{
-      text-align:center;
-      padding:35px;
-      margin-top:70px;
-      border-top:1px solid rgba(255,255,255,0.08);
-      color:#d5d5d5;
-    }
+/* NAV */
+nav{position:sticky;top:0;width:100%;padding:14px 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(7,17,31,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:999;transition:all 0.3s;}
+[data-theme="light"] nav{background:rgba(240,244,248,0.95);}
+.logo{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-1px;text-decoration:none;color:var(--text);}
+.logo span{color:var(--accent);}
+.nav-links{display:flex;list-style:none;gap:24px;align-items:center;}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:0.3s;padding-bottom:2px;border-bottom:2px solid transparent;}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.nav-right{display:flex;gap:10px;align-items:center;}
+.icon-btn{background:var(--card);border:1px solid var(--border);color:var(--text);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:15px;transition:0.3s;display:flex;align-items:center;justify-content:center;}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent);}
+.nav-apply-btn{background:var(--gradient);color:white;border:none;padding:8px 20px;border-radius:30px;cursor:pointer;font-weight:600;font-size:13px;font-family:'DM Sans',sans-serif;transition:0.3s;}
+.nav-apply-btn:hover{opacity:0.88;transform:translateY(-1px);}
+.hamburger{display:none;background:none;border:1px solid var(--border);color:var(--text);width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:16px;align-items:center;justify-content:center;}
+.mob-menu{display:none;flex-direction:column;background:var(--bg2);border-top:1px solid var(--border);padding:16px 6%;gap:12px;}
+.mob-menu a{color:var(--text2);text-decoration:none;font-size:15px;font-weight:500;padding:8px 0;border-bottom:1px solid var(--border);}
+.mob-menu a:hover{color:var(--accent);}
 
-    /* MOBILE */
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 20px 70px;position:relative;overflow:hidden;}
+.particles{position:absolute;inset:0;pointer-events:none;z-index:0;}
+.particle{position:absolute;border-radius:50%;background:var(--accent);opacity:0.12;animation:floatP linear infinite;}
+@keyframes floatP{0%{transform:translateY(110vh) scale(0)}100%{transform:translateY(-50px) scale(1);opacity:0}}
+.hero-inner{max-width:900px;position:relative;z-index:1;}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,217,255,0.08);border:1px solid rgba(0,217,255,0.22);color:var(--accent);padding:7px 18px;border-radius:30px;font-size:13px;font-weight:500;margin-bottom:26px;animation:fadeUp 0.7s ease both;}
+.hero h1{font-family:'Syne',sans-serif;font-size:64px;line-height:1.08;margin-bottom:20px;font-weight:800;animation:fadeUp 0.7s 0.1s ease both;}
+.hero h1 .grad{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cursor{animation:blink 0.8s infinite;color:var(--accent);}
+@keyframes blink{50%{opacity:0}}
+.hero p{font-size:17px;line-height:1.8;color:var(--text2);max-width:650px;margin:0 auto 32px;animation:fadeUp 0.7s 0.2s ease both;}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.7s 0.3s ease both;}
+.btn-main{padding:14px 36px;border-radius:50px;background:var(--gradient);color:white;text-decoration:none;font-weight:600;font-size:15px;transition:0.4s;box-shadow:var(--shadow);border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 0 50px rgba(0,217,255,0.3);}
+.btn-outline{padding:14px 36px;border-radius:50px;background:transparent;color:var(--accent);text-decoration:none;font-weight:600;font-size:15px;border:1.5px solid var(--accent);transition:0.4s;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-outline:hover{background:rgba(0,217,255,0.08);transform:translateY(-3px);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
-    @media(max-width:768px){
+/* STATS */
+.stats{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:60px;animation:fadeUp 0.7s 0.4s ease both;}
+.stat-box{background:var(--card);padding:24px 28px;border-radius:18px;min-width:170px;border:1px solid var(--border);transition:0.4s;text-align:center;}
+.stat-box:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:var(--shadow);}
+.stat-box h2{font-family:'Syne',sans-serif;font-size:38px;font-weight:800;color:var(--accent);margin-bottom:4px;}
+.stat-box p{color:var(--text2);font-size:13px;font-weight:500;}
 
-      .hero h1{
-        font-size:42px;
-      }
+/* SECTION */
+.section{padding:80px 6%;}
+.sec-title{text-align:center;font-family:'Syne',sans-serif;font-size:42px;font-weight:800;margin-bottom:12px;letter-spacing:-0.5px;}
+.sec-title span{color:var(--accent);}
+.sec-sub{text-align:center;color:var(--text2);font-size:16px;margin-bottom:50px;max-width:580px;margin-left:auto;margin-right:auto;}
 
-      .section-title{
-        font-size:34px;
-      }
+/* FILTER + SEARCH */
+.controls{display:flex;flex-direction:column;gap:18px;margin-bottom:36px;}
+.filter-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.ftab{padding:8px 20px;border-radius:30px;border:1.5px solid var(--border);background:transparent;color:var(--text2);font-size:13px;font-weight:500;cursor:pointer;transition:0.3s;font-family:'DM Sans',sans-serif;}
+.ftab:hover{border-color:var(--accent);color:var(--accent);}
+.ftab.active{background:var(--gradient);color:white;border-color:transparent;}
+.search-wrap{max-width:560px;margin:0 auto;position:relative;}
+.search-wrap input{width:100%;padding:14px 18px 14px 48px;border:1.5px solid var(--border);outline:none;border-radius:50px;background:var(--card);color:var(--text);font-size:15px;font-family:'DM Sans',sans-serif;transition:0.3s;}
+.search-wrap input:focus{border-color:var(--accent);}
+.search-wrap input::placeholder{color:var(--text3);}
+.search-wrap .si{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:16px;}
 
-      nav{
-        flex-direction:column;
-        gap:15px;
-      }
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;}
+.card{background:var(--card);border-radius:22px;padding:28px;border:1px solid var(--border);transition:all 0.35s;cursor:pointer;position:relative;overflow:hidden;}
+.card:hover{transform:translateY(-6px);border-color:var(--border-hover);box-shadow:var(--shadow);}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.card h2{font-family:'Syne',sans-serif;color:var(--accent);font-size:20px;font-weight:700;}
+.bm-btn{background:none;border:none;color:var(--text3);font-size:17px;cursor:pointer;transition:0.3s;padding:3px;}
+.bm-btn:hover{color:var(--accent);}
+.bm-btn.saved{color:#f59e0b;}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;background:rgba(0,217,255,0.1);color:var(--accent);margin-bottom:12px;font-size:11px;font-weight:600;letter-spacing:0.3px;}
+[data-theme="light"] .badge{background:rgba(0,100,150,0.1);}
+.card-desc{color:var(--text2);line-height:1.6;font-size:14px;}
+.details{display:none;margin-top:18px;animation:fadeIn 0.35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.branches-label{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;margin-top:4px;}
+.branch-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.branch-tag{background:rgba(0,217,255,0.07);border:1px solid rgba(0,217,255,0.18);color:var(--text2);padding:4px 10px;border-radius:6px;font-size:12px;transition:0.3s;}
+.branch-tag:hover{background:rgba(0,217,255,0.15);color:var(--accent);}
+.fee-box{background:var(--gradient);padding:10px 14px;border-radius:10px;text-align:center;font-weight:600;font-size:13px;margin-bottom:12px;}
+.apply-btn-card{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:8px;background:rgba(0,217,255,0.1);color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;border:1px solid rgba(0,217,255,0.2);transition:0.3s;}
+.apply-btn-card:hover{background:rgba(0,217,255,0.2);}
+.no-res{text-align:center;padding:50px 20px;color:var(--text3);display:none;grid-column:1/-1;font-size:15px;}
+.no-res i{font-size:40px;display:block;margin-bottom:12px;}
 
-    }
+/* TESTIMONIALS */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.tcard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;transition:0.35s;}
+.tcard:hover{border-color:var(--accent);transform:translateY(-5px);}
+.tstars{color:#f59e0b;font-size:13px;margin-bottom:12px;}
+.ttext{color:var(--text2);line-height:1.7;font-size:14px;margin-bottom:16px;font-style:italic;}
+.tauthor{display:flex;align-items:center;gap:10px;}
+.tavatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:white;flex-shrink:0;}
+.tname{font-weight:600;font-size:13px;}
+.trole{color:var(--text3);font-size:11px;margin-top:2px;}
 
-  </style>
+/* DEVELOPER */
+.dev-wrap{max-width:520px;margin:auto;background:var(--card);border-radius:22px;padding:34px;border:1px solid var(--border);text-align:center;transition:0.4s;}
+.dev-wrap:hover{border-color:var(--accent);box-shadow:var(--shadow);}
+.dev-av{width:76px;height:76px;background:var(--gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:white;margin:0 auto 14px;}
+.dev-wrap h2{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:var(--accent);margin-bottom:6px;}
+.dev-links{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap;}
+.dev-link{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:10px;background:var(--bg3);color:var(--text);text-decoration:none;font-weight:600;font-size:13px;border:1px solid var(--border);transition:0.3s;}
+.dev-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
 
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:46px 6% 26px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px;margin-bottom:36px;}
+.footer-brand p{color:var(--text2);font-size:13px;line-height:1.7;max-width:280px;margin-top:12px;}
+.fcol h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:14px;}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.fcol ul li a{color:var(--text2);text-decoration:none;font-size:13px;transition:0.3s;}
+.fcol ul li a:hover{color:var(--accent);}
+.footer-bot{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-bot p{color:var(--text3);font-size:12px;}
+.fsocial{display:flex;gap:8px;}
+.fsoc{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:14px;text-decoration:none;transition:0.3s;}
+.fsoc:hover{border-color:var(--accent);color:var(--accent);}
+
+/* FLOATS */
+.floats{position:fixed;bottom:26px;right:24px;display:flex;flex-direction:column;gap:10px;z-index:990;align-items:flex-end;}
+.fb{width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:0.3s;box-shadow:0 4px 18px rgba(0,0,0,0.3);}
+.fb-wa{background:#25d366;color:white;text-decoration:none;}
+.fb-wa:hover{transform:scale(1.08);}
+.fb-top{background:var(--card);border:1.5px solid var(--border);color:var(--accent);opacity:0;pointer-events:none;}
+.fb-top.show{opacity:1;pointer-events:all;}
+.fb-top:hover{transform:translateY(-2px);}
+.fb-apply{background:var(--gradient);color:white;width:auto;border-radius:28px;padding:0 20px;gap:7px;font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;}
+.fb-apply:hover{transform:translateY(-2px);box-shadow:0 0 28px rgba(0,217,255,0.35);}
+.bm-badge{position:fixed;top:66px;right:18px;background:var(--gradient);color:white;padding:7px 14px;border-radius:28px;font-size:12px;font-weight:600;display:none;align-items:center;gap:7px;z-index:980;}
+
+/* MODAL */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.72);backdrop-filter:blur(10px);z-index:1000;display:none;align-items:center;justify-content:center;padding:16px;}
+.overlay.open{display:flex;}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:26px;padding:36px;max-width:500px;width:100%;position:relative;max-height:92vh;overflow-y:auto;}
+.modal h2{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;margin-bottom:6px;}
+.modal .msub{color:var(--text2);font-size:14px;margin-bottom:24px;}
+.mclose{position:absolute;top:18px;right:18px;background:var(--card);border:1px solid var(--border);color:var(--text);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:0.3s;}
+.mclose:hover{border-color:var(--accent);color:var(--accent);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+.fg label{font-size:12px;font-weight:600;color:var(--text2);}
+.fg input,.fg select,.fg textarea{background:var(--card);border:1.5px solid var(--border);color:var(--text);padding:11px 14px;border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:0.3s;width:100%;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent);}
+.fg select option{background:var(--bg);}
+.fg textarea{resize:vertical;min-height:70px;}
+.sub-btn{width:100%;padding:13px;background:var(--gradient);color:white;border:none;border-radius:10px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:0.3s;margin-top:4px;}
+.sub-btn:hover{opacity:0.88;transform:translateY(-1px);}
+.success-view{text-align:center;padding:16px;display:none;}
+.success-view i{font-size:50px;color:#22c55e;display:block;margin-bottom:14px;}
+.success-view h3{font-size:20px;font-weight:700;margin-bottom:8px;}
+.success-view p{color:var(--text2);font-size:14px;}
+.export-row{display:flex;gap:8px;margin-top:14px;justify-content:center;flex-wrap:wrap;}
+.exp-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:0.3s;}
+.exp-csv{background:#16a34a;color:white;}
+.exp-csv:hover{background:#15803d;}
+.exp-json{background:#0077aa;color:white;}
+.exp-json:hover{background:#005f88;}
+
+/* CHATBOT */
+.chat-bubble{position:fixed;bottom:26px;left:24px;z-index:995;}
+.chat-toggle{width:54px;height:54px;border-radius:50%;background:var(--gradient);border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 20px rgba(0,217,255,0.35);display:flex;align-items:center;justify-content:center;transition:0.3s;}
+.chat-toggle:hover{transform:scale(1.08);}
+.chat-window{position:fixed;bottom:92px;left:24px;width:360px;max-height:520px;background:var(--bg2);border:1px solid var(--border);border-radius:22px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,0.4);z-index:994;}
+.chat-window.open{display:flex;}
+.chat-head{background:var(--gradient);padding:14px 18px;display:flex;align-items:center;gap:10px;}
+.chat-av{width:36px;height:36px;background:rgba(255,255,255,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.chat-head-info h4{font-size:14px;font-weight:600;color:white;}
+.chat-head-info p{font-size:11px;color:rgba(255,255,255,0.8);}
+.chat-close-btn{margin-left:auto;background:none;border:none;color:white;font-size:18px;cursor:pointer;opacity:0.8;}
+.chat-close-btn:hover{opacity:1;}
+.chat-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:280px;}
+.chat-msgs::-webkit-scrollbar{width:4px;}
+.chat-msgs::-webkit-scrollbar-track{background:transparent;}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+.msg{max-width:82%;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.55;animation:fadeIn 0.25s ease;}
+.msg.bot{background:var(--card);color:var(--text);border:1px solid var(--border);border-bottom-left-radius:4px;align-self:flex-start;}
+.msg.user{background:var(--gradient);color:white;border-bottom-right-radius:4px;align-self:flex-end;}
+.msg.typing{font-style:italic;color:var(--text3);}
+.quick-btns{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px;}
+.qbtn{padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text2);font-size:11px;cursor:pointer;transition:0.3s;font-family:'DM Sans',sans-serif;}
+.qbtn:hover{border-color:var(--accent);color:var(--accent);}
+.chat-input-row{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--border);}
+.chat-input{flex:1;background:var(--card);border:1px solid var(--border);color:var(--text);padding:9px 14px;border-radius:20px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;transition:0.3s;}
+.chat-input:focus{border-color:var(--accent);}
+.chat-send{background:var(--gradient);border:none;color:white;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:0.3s;flex-shrink:0;}
+.chat-send:hover{opacity:0.85;}
+
+/* TOAST */
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-70px);background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:12px 22px;border-radius:10px;font-size:13px;font-weight:500;z-index:1100;transition:transform 0.35s;display:flex;align-items:center;gap:8px;box-shadow:0 6px 28px rgba(0,0,0,0.3);}
+.toast.show{transform:translateX(-50%) translateY(0);}
+.toast i{color:#22c55e;}
+
+/* DB STATUS */
+.db-status{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;}
+.db-status.online{background:rgba(34,197,94,0.12);color:#22c55e;border:1px solid rgba(34,197,94,0.25);}
+.db-status.offline{background:rgba(239,68,68,0.12);color:#ef4444;border:1px solid rgba(239,68,68,0.25);}
+.db-dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:pulse-dot 1.5s infinite;}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.4}}
+
+/* RESPONSIVE */
+@media(max-width:880px){.footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}.hero h1{font-size:48px;}}
+@media(max-width:640px){.hero h1{font-size:34px;}.sec-title{font-size:30px;}.nav-links{display:none;}.hamburger{display:flex;}.nav-apply-btn{display:none;}.frow{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}.chat-window{width:calc(100vw - 32px);left:16px;}.floats{right:16px;bottom:20px;}}
+</style>
 </head>
-
 <body>
 
-  <!-- TOPBAR -->
+<!-- TOPBAR -->
+<div class="topbar">
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+    <span><i class="fa-solid fa-phone" style="margin-right:5px"></i>+91 9345836377</span>
+    <a href="mailto:admissions@tsgroup.edu"><i class="fa-solid fa-envelope" style="margin-right:5px"></i>admissions@tsgroup.edu</a>
+  </div>
+  <div class="topbar-right">
+    <span><i class="fa-solid fa-location-dot" style="margin-right:5px"></i>Salem, Tamil Nadu</span>
+    <span class="topbar-badge">Admissions Open 2026</span>
+    <span id="dbStatusTop" class="db-status offline"><span class="db-dot"></span>DB Offline</span>
+  </div>
+</div>
 
-  <div class="topbar">
+<!-- ANNOUNCEMENT -->
+<div class="announcement">
+  <span class="marquee-inner">🎓 Admissions Open 2026 &nbsp;|&nbsp; Merit Scholarships Up to 100% &nbsp;|&nbsp; 95% Placement Record &nbsp;|&nbsp; 40+ Institutions &nbsp;|&nbsp; NBA & NAAC Accredited &nbsp;|&nbsp; Smart Classrooms &nbsp;|&nbsp; Research Centers &nbsp;|&nbsp; AI & Robotics Labs &nbsp;|&nbsp; Hospital Training &nbsp;|&nbsp; 🎓 Apply Now</span>
+</div>
 
-    <div>
-      <i class="fa-solid fa-phone"></i> +91 9345836377
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="logo">TS <span>GROUP</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#institutions">Institutions</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#developer">Developer</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="icon-btn" id="themeBtn" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+    <button class="nav-apply-btn" onclick="openModal()">Apply Now</button>
+    <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#home">Home</a>
+  <a href="#institutions">Institutions</a>
+  <a href="#testimonials">Reviews</a>
+  <a href="#developer">Developer</a>
+  <a href="#contact">Contact</a>
+  <a href="#" onclick="openModal();return false;" style="color:var(--accent);">Apply Now →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="particles" id="ptcls"></div>
+  <div class="hero-inner">
+    <div class="hero-pill"><i class="fa-solid fa-star" style="color:#f59e0b"></i> Ranked #1 Group of Institutions in Salem, TN</div>
+    <h1>Welcome to<br><span class="grad" id="typer">TS GROUP</span><span class="cursor">|</span></h1>
+    <p>Premium educational ecosystem spanning Engineering, Medical, Law, Management, Arts & more — with world-class infrastructure and 95% placement.</p>
+    <div class="hero-btns">
+      <a href="#institutions" class="btn-main">Explore Institutions</a>
+      <button class="btn-outline" onclick="openModal()">Apply Now</button>
+    </div>
+    <div class="stats">
+      <div class="stat-box"><h2 class="ctr" data-t="40" data-s="+">0</h2><p>Institutions</p></div>
+      <div class="stat-box"><h2 class="ctr" data-t="50" data-s="K+">0</h2><p>Students</p></div>
+      <div class="stat-box"><h2 class="ctr" data-t="500" data-s="+">0</h2><p>Faculty</p></div>
+      <div class="stat-box"><h2 class="ctr" data-t="95" data-s="%">0</h2><p>Placement</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTITUTIONS -->
+<section class="section" id="institutions">
+  <h1 class="sec-title">Our <span>Institutions</span></h1>
+  <p class="sec-sub">21 specialized institutions — click any card to explore all real branches & courses.</p>
+  <div class="controls">
+    <div class="filter-tabs">
+      <button class="ftab active" onclick="filterCards('all',this)">All</button>
+      <button class="ftab" onclick="filterCards('engineering',this)">Engineering</button>
+      <button class="ftab" onclick="filterCards('medical',this)">Medical</button>
+      <button class="ftab" onclick="filterCards('management',this)">Management</button>
+      <button class="ftab" onclick="filterCards('school',this)">School</button>
+      <button class="ftab" onclick="filterCards('arts',this)">Arts & Science</button>
+      <button class="ftab" onclick="filterCards('law',this)">Law</button>
+    </div>
+    <div class="search-wrap">
+      <i class="fa-solid fa-search si"></i>
+      <input type="text" id="srch" placeholder="Search institution, course, branch..." oninput="doSearch()">
+    </div>
+  </div>
+  <div class="grid" id="cardGrid">
+    <div class="no-res" id="noRes"><i class="fa-solid fa-magnifying-glass"></i>No results found.</div>
+
+    <!-- ENGINEERING -->
+    <div class="card" data-cat="engineering" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Engineering College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-award"></i> NBA Accredited | NAAC A++</div>
+      <p class="card-desc">Advanced engineering with AI, Robotics, IoT, Cloud & VLSI labs. Industry 4.0 curriculum.</p>
+      <div class="details">
+        <div class="branches-label">UG Programs (B.E / B.Tech)</div>
+        <div class="branch-list">
+          <span class="branch-tag">Computer Science & Engineering</span>
+          <span class="branch-tag">Information Technology</span>
+          <span class="branch-tag">Artificial Intelligence & Data Science</span>
+          <span class="branch-tag">AI & Machine Learning</span>
+          <span class="branch-tag">Computer Science & Business Systems</span>
+          <span class="branch-tag">Electronics & Communication Engg</span>
+          <span class="branch-tag">Electrical & Electronics Engg</span>
+          <span class="branch-tag">Mechanical Engineering</span>
+          <span class="branch-tag">Civil Engineering</span>
+          <span class="branch-tag">Aeronautical Engineering</span>
+          <span class="branch-tag">Automobile Engineering</span>
+          <span class="branch-tag">Chemical Engineering</span>
+          <span class="branch-tag">Biomedical Engineering</span>
+          <span class="branch-tag">Robotics & Automation</span>
+          <span class="branch-tag">Cyber Security</span>
+          <span class="branch-tag">Internet of Things</span>
+        </div>
+        <div class="branches-label">PG Programs (M.E / M.Tech)</div>
+        <div class="branch-list">
+          <span class="branch-tag">M.E Computer Science</span>
+          <span class="branch-tag">M.E VLSI Design</span>
+          <span class="branch-tag">M.E Structural Engineering</span>
+          <span class="branch-tag">M.E Power Systems</span>
+          <span class="branch-tag">M.Tech Software Engineering</span>
+          <span class="branch-tag">M.Tech Data Science</span>
+          <span class="branch-tag">MBA Engineering Management</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹85,000 – ₹1,80,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Engineering College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
     </div>
 
-    <div>
-      <i class="fa-solid fa-envelope"></i> admissions@tsgroup.edu
+    <!-- MEDICAL -->
+    <div class="card" data-cat="medical" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Medical College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-hospital"></i> NMC Approved | 1000-Bed Teaching Hospital</div>
+      <p class="card-desc">MBBS, MD, MS & super-specialty programs with full hospital clinical exposure from Year 1.</p>
+      <div class="details">
+        <div class="branches-label">UG Program</div>
+        <div class="branch-list"><span class="branch-tag">MBBS (5.5 Years)</span></div>
+        <div class="branches-label">PG Programs (MD)</div>
+        <div class="branch-list">
+          <span class="branch-tag">MD General Medicine</span>
+          <span class="branch-tag">MD Paediatrics</span>
+          <span class="branch-tag">MD Psychiatry</span>
+          <span class="branch-tag">MD Dermatology</span>
+          <span class="branch-tag">MD Radiology</span>
+          <span class="branch-tag">MD Anaesthesiology</span>
+          <span class="branch-tag">MD Pathology</span>
+          <span class="branch-tag">MD Biochemistry</span>
+          <span class="branch-tag">MD Microbiology</span>
+          <span class="branch-tag">MD Community Medicine</span>
+          <span class="branch-tag">MD Forensic Medicine</span>
+          <span class="branch-tag">MD Pharmacology</span>
+        </div>
+        <div class="branches-label">PG Programs (MS)</div>
+        <div class="branch-list">
+          <span class="branch-tag">MS General Surgery</span>
+          <span class="branch-tag">MS Orthopaedics</span>
+          <span class="branch-tag">MS ENT</span>
+          <span class="branch-tag">MS Ophthalmology</span>
+          <span class="branch-tag">MS Obstetrics & Gynaecology</span>
+        </div>
+        <div class="branches-label">Super Specialty (DM / MCh)</div>
+        <div class="branch-list">
+          <span class="branch-tag">DM Cardiology</span>
+          <span class="branch-tag">DM Neurology</span>
+          <span class="branch-tag">DM Nephrology</span>
+          <span class="branch-tag">MCh Neurosurgery</span>
+          <span class="branch-tag">MCh Urology</span>
+          <span class="branch-tag">MCh Plastic Surgery</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹8,00,000 – ₹18,00,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Medical College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
     </div>
 
-    <div>
-      <i class="fa-solid fa-location-dot"></i> Salem Tamil Nadu, India
+    <!-- DENTAL -->
+    <div class="card" data-cat="medical" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Dental College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-tooth"></i> DCI Approved</div>
+      <p class="card-desc">Dental healthcare with simulation labs, OPD clinics, and hospital-attached surgery training.</p>
+      <div class="details">
+        <div class="branches-label">UG Program</div>
+        <div class="branch-list"><span class="branch-tag">BDS (5 Years)</span></div>
+        <div class="branches-label">PG Programs (MDS)</div>
+        <div class="branch-list">
+          <span class="branch-tag">MDS Orthodontics & Dentofacial Orthopaedics</span>
+          <span class="branch-tag">MDS Oral & Maxillofacial Surgery</span>
+          <span class="branch-tag">MDS Conservative Dentistry & Endodontics</span>
+          <span class="branch-tag">MDS Prosthodontics & Crown Bridge</span>
+          <span class="branch-tag">MDS Periodontology</span>
+          <span class="branch-tag">MDS Pedodontics & Preventive Dentistry</span>
+          <span class="branch-tag">MDS Oral Medicine & Radiology</span>
+          <span class="branch-tag">MDS Oral Pathology & Microbiology</span>
+          <span class="branch-tag">MDS Public Health Dentistry</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹3,00,000 – ₹7,00,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Dental College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- NURSING -->
+    <div class="card" data-cat="medical" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Nursing College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-heart-pulse"></i> INC Approved</div>
+      <p class="card-desc">Nursing education with hands-on clinical training, ICU, OT and community health exposure.</p>
+      <div class="details">
+        <div class="branches-label">UG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">B.Sc Nursing (4 Years)</span>
+          <span class="branch-tag">GNM – General Nursing & Midwifery (3.5 Years)</span>
+          <span class="branch-tag">ANM – Auxiliary Nurse Midwife (2 Years)</span>
+        </div>
+        <div class="branches-label">PG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">M.Sc Nursing – Medical Surgical Nursing</span>
+          <span class="branch-tag">M.Sc Nursing – Psychiatric Nursing</span>
+          <span class="branch-tag">M.Sc Nursing – Paediatric Nursing</span>
+          <span class="branch-tag">M.Sc Nursing – Obstetric & Gynaecological Nursing</span>
+          <span class="branch-tag">M.Sc Nursing – Community Health Nursing</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹1,20,000 – ₹2,50,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Nursing College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- PHARMACY -->
+    <div class="card" data-cat="medical" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Pharmacy College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-pills"></i> PCI Approved</div>
+      <p class="card-desc">Drug discovery, clinical pharmacy, pharmaceutical research and industry internships.</p>
+      <div class="details">
+        <div class="branches-label">UG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">B.Pharm (4 Years)</span>
+          <span class="branch-tag">Pharm.D (6 Years – Clinical)</span>
+          <span class="branch-tag">D.Pharm (2 Years – Diploma)</span>
+        </div>
+        <div class="branches-label">PG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">M.Pharm Pharmaceutics</span>
+          <span class="branch-tag">M.Pharm Pharmacology</span>
+          <span class="branch-tag">M.Pharm Pharmaceutical Chemistry</span>
+          <span class="branch-tag">M.Pharm Pharmacognosy</span>
+          <span class="branch-tag">M.Pharm Quality Assurance</span>
+          <span class="branch-tag">M.Pharm Drug Regulatory Affairs</span>
+          <span class="branch-tag">M.Pharm Industrial Pharmacy</span>
+          <span class="branch-tag">MBA Pharmaceutical Management</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹1,50,000 – ₹3,00,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Pharmacy College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- ARTS -->
+    <div class="card" data-cat="arts" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Arts & Science College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-palette"></i> NAAC A Accredited</div>
+      <p class="card-desc">Liberal arts, humanities, social sciences, and sciences with research culture.</p>
+      <div class="details">
+        <div class="branches-label">BA Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">BA English Literature</span>
+          <span class="branch-tag">BA Tamil</span>
+          <span class="branch-tag">BA History</span>
+          <span class="branch-tag">BA Economics</span>
+          <span class="branch-tag">BA Political Science</span>
+          <span class="branch-tag">BA Sociology</span>
+          <span class="branch-tag">BA Public Administration</span>
+          <span class="branch-tag">BA Geography</span>
+          <span class="branch-tag">BA Philosophy</span>
+          <span class="branch-tag">BA Journalism & Mass Communication</span>
+        </div>
+        <div class="branches-label">B.Sc Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">B.Sc Mathematics</span>
+          <span class="branch-tag">B.Sc Physics</span>
+          <span class="branch-tag">B.Sc Chemistry</span>
+          <span class="branch-tag">B.Sc Zoology</span>
+          <span class="branch-tag">B.Sc Botany</span>
+          <span class="branch-tag">B.Sc Microbiology</span>
+          <span class="branch-tag">B.Sc Biotechnology</span>
+          <span class="branch-tag">B.Sc Computer Science</span>
+          <span class="branch-tag">B.Sc Information Technology</span>
+          <span class="branch-tag">B.Sc Statistics</span>
+          <span class="branch-tag">B.Sc Electronics</span>
+        </div>
+        <div class="branches-label">B.Com Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">B.Com General</span>
+          <span class="branch-tag">B.Com Computer Applications</span>
+          <span class="branch-tag">B.Com Accounting & Finance</span>
+          <span class="branch-tag">B.Com Professional</span>
+        </div>
+        <div class="branches-label">PG Programs (MA / M.Sc / M.Com)</div>
+        <div class="branch-list">
+          <span class="branch-tag">MA English</span><span class="branch-tag">MA Tamil</span>
+          <span class="branch-tag">MA History</span><span class="branch-tag">MA Economics</span>
+          <span class="branch-tag">M.Sc Mathematics</span><span class="branch-tag">M.Sc Physics</span>
+          <span class="branch-tag">M.Sc Chemistry</span><span class="branch-tag">M.Sc Computer Science</span>
+          <span class="branch-tag">M.Sc Biotechnology</span><span class="branch-tag">M.Com</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹30,000 – ₹75,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Arts & Science College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- LAW -->
+    <div class="card" data-cat="law" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Law College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-scale-balanced"></i> BCI Approved</div>
+      <p class="card-desc">Legal education with moot courts, legal aid clinics, and bar exam coaching.</p>
+      <div class="details">
+        <div class="branches-label">UG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">BA LLB (5 Years – Hons)</span>
+          <span class="branch-tag">BBA LLB (5 Years – Corporate Law)</span>
+          <span class="branch-tag">B.Com LLB (5 Years)</span>
+          <span class="branch-tag">LLB (3 Years – After Graduation)</span>
+        </div>
+        <div class="branches-label">PG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">LLM Constitutional Law</span>
+          <span class="branch-tag">LLM Criminal Law</span>
+          <span class="branch-tag">LLM Corporate & Commercial Law</span>
+          <span class="branch-tag">LLM Intellectual Property Rights</span>
+          <span class="branch-tag">LLM International Law</span>
+          <span class="branch-tag">LLM Labour & Industrial Law</span>
+          <span class="branch-tag">LLM Cyber Law</span>
+          <span class="branch-tag">LLM Family Law</span>
+          <span class="branch-tag">LLM Human Rights Law</span>
+        </div>
+        <div class="branches-label">Research</div>
+        <div class="branch-list"><span class="branch-tag">Ph.D in Law</span></div>
+        <div class="fee-box">Annual Fees: ₹80,000 – ₹2,20,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Law College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- MANAGEMENT -->
+    <div class="card" data-cat="management" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Management College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-briefcase"></i> AICTE Approved | NBA</div>
+      <p class="card-desc">Industry-integrated management education with live projects and 100% placement support.</p>
+      <div class="details">
+        <div class="branches-label">UG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">BBA General Management</span>
+          <span class="branch-tag">BBA International Business</span>
+          <span class="branch-tag">BBA Logistics & Supply Chain</span>
+          <span class="branch-tag">BBA Hospital Management</span>
+          <span class="branch-tag">B.Com (Hons)</span>
+          <span class="branch-tag">B.Com Business Analytics</span>
+        </div>
+        <div class="branches-label">MBA Programs (PG)</div>
+        <div class="branch-list">
+          <span class="branch-tag">MBA Human Resources Management</span>
+          <span class="branch-tag">MBA Finance</span>
+          <span class="branch-tag">MBA Marketing Management</span>
+          <span class="branch-tag">MBA Operations Management</span>
+          <span class="branch-tag">MBA International Business</span>
+          <span class="branch-tag">MBA Business Analytics</span>
+          <span class="branch-tag">MBA Hospital & Healthcare Management</span>
+          <span class="branch-tag">MBA Logistics & Supply Chain</span>
+          <span class="branch-tag">MBA Digital Marketing</span>
+          <span class="branch-tag">MBA Entrepreneurship</span>
+          <span class="branch-tag">MBA Agribusiness Management</span>
+        </div>
+        <div class="branches-label">Executive / Doctoral</div>
+        <div class="branch-list">
+          <span class="branch-tag">Executive MBA</span>
+          <span class="branch-tag">Ph.D Management</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹1,50,000 – ₹3,20,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Management College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- POLYTECHNIC -->
+    <div class="card" data-cat="engineering" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Polytechnic College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-wrench"></i> DOTE Approved | Diploma</div>
+      <p class="card-desc">3-year technical diploma with industry-level workshops, CNC, and 3D printing labs.</p>
+      <div class="details">
+        <div class="branches-label">Diploma Programs (3 Years)</div>
+        <div class="branch-list">
+          <span class="branch-tag">Diploma in Mechanical Engineering</span>
+          <span class="branch-tag">Diploma in Civil Engineering</span>
+          <span class="branch-tag">Diploma in Electrical & Electronics Engg</span>
+          <span class="branch-tag">Diploma in Electronics & Communication Engg</span>
+          <span class="branch-tag">Diploma in Computer Engineering</span>
+          <span class="branch-tag">Diploma in Information Technology</span>
+          <span class="branch-tag">Diploma in Automobile Engineering</span>
+          <span class="branch-tag">Diploma in Chemical Engineering</span>
+          <span class="branch-tag">Diploma in Textile Technology</span>
+          <span class="branch-tag">Diploma in Plastic Technology</span>
+          <span class="branch-tag">Diploma in Printing Technology</span>
+          <span class="branch-tag">Diploma in Architecture Assistantship</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹40,000 – ₹90,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Polytechnic College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- ITI -->
+    <div class="card" data-cat="engineering" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS ITI College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-toolbox"></i> NCVT Affiliated | NSDC</div>
+      <p class="card-desc">1-2 year vocational trades with NCVT certification and 100% job placement assistance.</p>
+      <div class="details">
+        <div class="branches-label">Engineering Trades (2 Years)</div>
+        <div class="branch-list">
+          <span class="branch-tag">Electrician</span>
+          <span class="branch-tag">Fitter</span>
+          <span class="branch-tag">Turner</span>
+          <span class="branch-tag">Machinist</span>
+          <span class="branch-tag">Welder</span>
+          <span class="branch-tag">Draughtsman Civil</span>
+          <span class="branch-tag">Draughtsman Mechanical</span>
+          <span class="branch-tag">Instrument Mechanic</span>
+          <span class="branch-tag">Electronics Mechanic</span>
+          <span class="branch-tag">Mechanic Motor Vehicle</span>
+          <span class="branch-tag">Mechanic Diesel</span>
+          <span class="branch-tag">Wireman</span>
+        </div>
+        <div class="branches-label">Non-Engineering Trades (1 Year)</div>
+        <div class="branch-list">
+          <span class="branch-tag">Computer Operator & Programming Assistant</span>
+          <span class="branch-tag">Stenography English</span>
+          <span class="branch-tag">Stenography Tamil</span>
+          <span class="branch-tag">Cutting & Tailoring</span>
+          <span class="branch-tag">Hair & Skin Care</span>
+          <span class="branch-tag">Food Production (General)</span>
+          <span class="branch-tag">Secretarial Practice</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹25,000 – ₹60,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS ITI College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE -->
+    <div class="card" data-cat="engineering" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Architecture College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-building"></i> COA Approved</div>
+      <p class="card-desc">Architecture, planning and interior design with BIM, AutoCAD and sustainable design studios.</p>
+      <div class="details">
+        <div class="branches-label">UG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">B.Arch (5 Years)</span>
+          <span class="branch-tag">B.Des Interior Design (4 Years)</span>
+          <span class="branch-tag">B.Planning (4 Years)</span>
+        </div>
+        <div class="branches-label">PG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">M.Arch Urban Design</span>
+          <span class="branch-tag">M.Arch Housing</span>
+          <span class="branch-tag">M.Arch Sustainable Architecture</span>
+          <span class="branch-tag">M.Arch Landscape Architecture</span>
+          <span class="branch-tag">M.Arch Industrial Architecture</span>
+          <span class="branch-tag">M.Planning Urban & Regional Planning</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹1,50,000 – ₹4,00,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Architecture College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- DESIGN -->
+    <div class="card" data-cat="arts" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Design College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-pen-nib"></i> Creative Studio | NID Recognized</div>
+      <p class="card-desc">Industry-grade Figma, Adobe CC, 3D modeling, animation & product design studios.</p>
+      <div class="details">
+        <div class="branches-label">UG Programs (B.Des)</div>
+        <div class="branch-list">
+          <span class="branch-tag">B.Des Graphic Design</span>
+          <span class="branch-tag">B.Des Communication Design</span>
+          <span class="branch-tag">B.Des UI/UX Design</span>
+          <span class="branch-tag">B.Des Product Design</span>
+          <span class="branch-tag">B.Des Fashion Design</span>
+          <span class="branch-tag">B.Des Textile Design</span>
+          <span class="branch-tag">B.Des Animation & Game Design</span>
+          <span class="branch-tag">B.Des Industrial Design</span>
+          <span class="branch-tag">B.Des Jewellery Design</span>
+          <span class="branch-tag">B.Des Film & VFX</span>
+        </div>
+        <div class="branches-label">PG Programs (M.Des)</div>
+        <div class="branch-list">
+          <span class="branch-tag">M.Des Graphic Design</span>
+          <span class="branch-tag">M.Des UI/UX</span>
+          <span class="branch-tag">M.Des Industrial Design</span>
+          <span class="branch-tag">M.Des Fashion Design</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹1,00,000 – ₹2,80,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Design College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- AVIATION -->
+    <div class="card" data-cat="management" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Aviation College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-plane"></i> DGCA Approved</div>
+      <p class="card-desc">Pilot training, cabin crew, airport management with DGCA-approved flight simulators.</p>
+      <div class="details">
+        <div class="branches-label">UG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">B.Sc Aviation (3 Years)</span>
+          <span class="branch-tag">B.Sc Aircraft Maintenance Engineering</span>
+          <span class="branch-tag">BBA Airport & Airline Management</span>
+          <span class="branch-tag">B.Sc Air Traffic Control</span>
+        </div>
+        <div class="branches-label">Diploma & Certificate</div>
+        <div class="branch-list">
+          <span class="branch-tag">Diploma in Cabin Crew & Air Hostess</span>
+          <span class="branch-tag">Diploma in Ground Staff & Flight Dispatch</span>
+          <span class="branch-tag">Diploma in Ticketing & Travel Management</span>
+          <span class="branch-tag">Certificate in Aviation Security</span>
+          <span class="branch-tag">Commercial Pilot License (CPL) – DGCA</span>
+        </div>
+        <div class="branches-label">PG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">MBA Aviation Management</span>
+          <span class="branch-tag">M.Sc Aviation Safety & Operations</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹2,00,000 – ₹6,00,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Aviation College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- PHYSIOTHERAPY -->
+    <div class="card" data-cat="medical" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Physiotherapy College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-person-walking"></i> IAP Approved | Rehab Center</div>
+      <p class="card-desc">Physiotherapy, sports medicine, and rehabilitation with neuro, ortho and cardio specialty labs.</p>
+      <div class="details">
+        <div class="branches-label">UG Program</div>
+        <div class="branch-list"><span class="branch-tag">BPT – Bachelor of Physiotherapy (4.5 Years)</span></div>
+        <div class="branches-label">PG Programs (MPT)</div>
+        <div class="branch-list">
+          <span class="branch-tag">MPT Musculoskeletal & Sports Physiotherapy</span>
+          <span class="branch-tag">MPT Neurological Physiotherapy</span>
+          <span class="branch-tag">MPT Paediatric Physiotherapy</span>
+          <span class="branch-tag">MPT Cardiopulmonary Physiotherapy</span>
+          <span class="branch-tag">MPT Community Rehabilitation</span>
+          <span class="branch-tag">MPT Geriatric Physiotherapy</span>
+          <span class="branch-tag">MPT Women's Health</span>
+          <span class="branch-tag">MPT Occupational Health</span>
+        </div>
+        <div class="branches-label">Research</div>
+        <div class="branch-list"><span class="branch-tag">Ph.D Physiotherapy</span></div>
+        <div class="fee-box">Annual Fees: ₹1,20,000 – ₹2,80,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Physiotherapy College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- AGRICULTURE -->
+    <div class="card" data-cat="arts" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Agriculture College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-seedling"></i> ICAR Affiliated</div>
+      <p class="card-desc">Agri-tech, precision farming, drone agriculture, hydroponics and agri-business programs.</p>
+      <div class="details">
+        <div class="branches-label">UG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">B.Sc Agriculture (4 Years)</span>
+          <span class="branch-tag">B.Sc Horticulture (4 Years)</span>
+          <span class="branch-tag">B.Sc Forestry (4 Years)</span>
+          <span class="branch-tag">B.Tech Agricultural Engineering (4 Years)</span>
+          <span class="branch-tag">B.Tech Food Technology (4 Years)</span>
+          <span class="branch-tag">BBA Agribusiness Management</span>
+        </div>
+        <div class="branches-label">PG Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">M.Sc Agronomy</span>
+          <span class="branch-tag">M.Sc Soil Science & Agricultural Chemistry</span>
+          <span class="branch-tag">M.Sc Plant Pathology</span>
+          <span class="branch-tag">M.Sc Agricultural Entomology</span>
+          <span class="branch-tag">M.Sc Plant Breeding & Genetics</span>
+          <span class="branch-tag">M.Sc Horticulture</span>
+          <span class="branch-tag">M.Tech Agricultural Engineering</span>
+          <span class="branch-tag">M.Tech Food Technology</span>
+          <span class="branch-tag">MBA Agribusiness</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹90,000 – ₹2,00,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Agriculture College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- VETERINARY -->
+    <div class="card" data-cat="medical" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Veterinary College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-paw"></i> VCI Approved</div>
+      <p class="card-desc">Veterinary medicine, surgery, and animal husbandry with animal hospital and rural camps.</p>
+      <div class="details">
+        <div class="branches-label">UG Program</div>
+        <div class="branch-list"><span class="branch-tag">BVSc & AH – Bachelor of Veterinary Science (5.5 Years)</span></div>
+        <div class="branches-label">PG Programs (MVSc)</div>
+        <div class="branch-list">
+          <span class="branch-tag">MVSc Veterinary Medicine</span>
+          <span class="branch-tag">MVSc Veterinary Surgery & Radiology</span>
+          <span class="branch-tag">MVSc Veterinary Gynaecology & Obstetrics</span>
+          <span class="branch-tag">MVSc Animal Nutrition</span>
+          <span class="branch-tag">MVSc Veterinary Pathology</span>
+          <span class="branch-tag">MVSc Veterinary Microbiology</span>
+          <span class="branch-tag">MVSc Veterinary Parasitology</span>
+          <span class="branch-tag">MVSc Livestock Production Management</span>
+          <span class="branch-tag">MVSc Veterinary Pharmacology</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹1,50,000 – ₹3,80,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Veterinary College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <div class="card" data-cat="management" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Research Institute</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-microscope"></i> DST Recognized</div>
+      <p class="card-desc">Interdisciplinary research, patents, international publications, and DST-funded projects.</p>
+      <div class="details">
+        <div class="branches-label">Ph.D Programs</div>
+        <div class="branch-list">
+          <span class="branch-tag">Ph.D Engineering & Technology</span>
+          <span class="branch-tag">Ph.D Medicine</span>
+          <span class="branch-tag">Ph.D Science</span>
+          <span class="branch-tag">Ph.D Management</span>
+          <span class="branch-tag">Ph.D Humanities</span>
+          <span class="branch-tag">Ph.D Law</span>
+          <span class="branch-tag">Ph.D Agriculture</span>
+          <span class="branch-tag">Ph.D Education</span>
+        </div>
+        <div class="branches-label">Research Fellowships</div>
+        <div class="branch-list">
+          <span class="branch-tag">Post-Doctoral Fellowship</span>
+          <span class="branch-tag">DST-INSPIRE Fellowship</span>
+          <span class="branch-tag">ICMR Research Fellowship</span>
+          <span class="branch-tag">Industry-Sponsored Research Projects</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹1,50,000 – ₹5,00,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Research Institute')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- PARAMEDICAL -->
+    <div class="card" data-cat="medical" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Paramedical College</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-kit-medical"></i> PMDC Approved</div>
+      <p class="card-desc">Emergency care, lab tech, radiology, dialysis and OT technician programs with hospital training.</p>
+      <div class="details">
+        <div class="branches-label">B.Sc Programs (3 Years)</div>
+        <div class="branch-list">
+          <span class="branch-tag">B.Sc Medical Laboratory Technology</span>
+          <span class="branch-tag">B.Sc Radiology & Imaging Technology</span>
+          <span class="branch-tag">B.Sc Operation Theatre Technology</span>
+          <span class="branch-tag">B.Sc Anaesthesia Technology</span>
+          <span class="branch-tag">B.Sc Dialysis Technology</span>
+          <span class="branch-tag">B.Sc Cardiac Technology</span>
+          <span class="branch-tag">B.Sc Optometry</span>
+          <span class="branch-tag">B.Sc Respiratory Therapy</span>
+          <span class="branch-tag">B.Sc Perfusion Technology</span>
+          <span class="branch-tag">B.Sc Emergency Medical Technology</span>
+          <span class="branch-tag">B.Sc Medical Record Technology</span>
+        </div>
+        <div class="branches-label">Diploma Programs (2 Years)</div>
+        <div class="branch-list">
+          <span class="branch-tag">Diploma Medical Lab Tech</span>
+          <span class="branch-tag">Diploma Radiology</span>
+          <span class="branch-tag">Diploma OT Tech</span>
+          <span class="branch-tag">Diploma Physiotherapy</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹80,000 – ₹2,20,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Paramedical College')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- MATRIC SCHOOL -->
+    <div class="card" data-cat="school" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS Matric School</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-school"></i> Tamil Nadu Matriculation Board</div>
+      <p class="card-desc">Smart classrooms, digital labs, activity-based learning, NCC, NSS, sports & cultural events.</p>
+      <div class="details">
+        <div class="branches-label">Pre-Primary</div>
+        <div class="branch-list"><span class="branch-tag">LKG</span><span class="branch-tag">UKG</span></div>
+        <div class="branches-label">Primary School (I – V)</div>
+        <div class="branch-list"><span class="branch-tag">Tamil / English Medium</span><span class="branch-tag">Vedic Maths</span><span class="branch-tag">Abacus</span><span class="branch-tag">Spoken English</span></div>
+        <div class="branches-label">Middle School (VI – VIII)</div>
+        <div class="branch-list"><span class="branch-tag">Science Stream</span><span class="branch-tag">Coding & Robotics</span><span class="branch-tag">Life Skills</span></div>
+        <div class="branches-label">High School (IX – X)</div>
+        <div class="branch-list"><span class="branch-tag">Science Group</span><span class="branch-tag">Arts Group</span><span class="branch-tag">Commerce Group</span></div>
+        <div class="branches-label">Higher Secondary (XI – XII)</div>
+        <div class="branch-list">
+          <span class="branch-tag">Bio-Maths Group</span>
+          <span class="branch-tag">Computer Science Group</span>
+          <span class="branch-tag">Commerce with Computer Applications</span>
+          <span class="branch-tag">Arts Group</span>
+          <span class="branch-tag">Vocational Group</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹25,000 – ₹80,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS Matric School')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
+    </div>
+
+    <!-- CBSE SCHOOL -->
+    <div class="card" data-cat="school" onclick="toggleCard(this)">
+      <div class="card-top"><h2>TS CBSE School</h2><button class="bm-btn" onclick="toggleBM(event,this)"><i class="fa-regular fa-bookmark"></i></button></div>
+      <div class="badge"><i class="fa-solid fa-graduation-cap"></i> CBSE Affiliated | NEP 2020</div>
+      <p class="card-desc">NEP 2020 aligned CBSE curriculum with IIT/NEET coaching, NCC, NSS and international exchange.</p>
+      <div class="details">
+        <div class="branches-label">Foundational Stage (I – V)</div>
+        <div class="branch-list"><span class="branch-tag">Play-Based Learning</span><span class="branch-tag">Coding Basics</span><span class="branch-tag">Arts Integration</span></div>
+        <div class="branches-label">Middle Stage (VI – VIII)</div>
+        <div class="branch-list"><span class="branch-tag">STEM Projects</span><span class="branch-tag">Robotics</span><span class="branch-tag">Spoken English</span><span class="branch-tag">Life Skills</span></div>
+        <div class="branches-label">Secondary (IX – X)</div>
+        <div class="branch-list"><span class="branch-tag">Science</span><span class="branch-tag">Mathematics</span><span class="branch-tag">Social Science</span><span class="branch-tag">IT (Option)</span></div>
+        <div class="branches-label">Senior Secondary (XI – XII)</div>
+        <div class="branch-list">
+          <span class="branch-tag">Science – PCM (Physics Chemistry Maths)</span>
+          <span class="branch-tag">Science – PCB (Physics Chemistry Biology)</span>
+          <span class="branch-tag">Science – PCMB (All four)</span>
+          <span class="branch-tag">Commerce with/without Maths</span>
+          <span class="branch-tag">Humanities (History, Geography, Political Science)</span>
+          <span class="branch-tag">Computer Science Elective</span>
+          <span class="branch-tag">Physical Education Elective</span>
+        </div>
+        <div class="fee-box">Annual Fees: ₹40,000 – ₹1,20,000</div>
+        <span class="apply-btn-card" onclick="event.stopPropagation();openModal('TS CBSE School')"><i class="fa-solid fa-paper-plane"></i> Apply for Admission</span>
+      </div>
     </div>
 
   </div>
+</section>
 
-  <!-- ANNOUNCEMENT -->
-
-  <div class="announcement">
-    🎓 Admissions Open 2026 | Scholarships Available | 95% Placement
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials" style="background:var(--bg2);">
+  <h1 class="sec-title">Student <span>Reviews</span></h1>
+  <p class="sec-sub">What students, alumni and parents say about TS Group.</p>
+  <div class="tgrid">
+    <div class="tcard"><div class="tstars">★★★★★</div><p class="ttext">"Placed at TCS in 7th semester itself. The placement cell is incredibly supportive and the labs are industry-grade."</p><div class="tauthor"><div class="tavatar" style="background:linear-gradient(135deg,#00d9ff,#005eff)">RK</div><div><div class="tname">Ravi Kumar</div><div class="trole">B.E CSE | Placed at TCS</div></div></div></div>
+    <div class="tcard"><div class="tstars">★★★★★</div><p class="ttext">"TS Medical College's attached hospital gave me real clinical exposure from Year 1. Best faculty in Salem."</p><div class="tauthor"><div class="tavatar" style="background:linear-gradient(135deg,#8a2eff,#005eff)">PS</div><div><div class="tname">Priya Suresh</div><div class="trole">MBBS Final Year</div></div></div></div>
+    <div class="tcard"><div class="tstars">★★★★★</div><p class="ttext">"Live industry MBA projects at TS Management made a huge difference. Got placed at Axis Bank."</p><div class="tauthor"><div class="tavatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">AM</div><div><div class="tname">Arjun Mohan</div><div class="trole">MBA Finance | Axis Bank</div></div></div></div>
+    <div class="tcard"><div class="tstars">★★★★★</div><p class="ttext">"My daughter's school journey at TS CBSE has been exceptional. Smart classrooms, great teachers."</p><div class="tauthor"><div class="tavatar" style="background:linear-gradient(135deg,#22c55e,#15803d)">SL</div><div><div class="tname">Sumathi L</div><div class="trole">Parent | Grade 8</div></div></div></div>
+    <div class="tcard"><div class="tstars">★★★★★</div><p class="ttext">"Completed Ph.D with 3 international publications. The research infrastructure is world-class."</p><div class="tauthor"><div class="tavatar" style="background:linear-gradient(135deg,#00d9ff,#8a2eff)">DV</div><div><div class="tname">Dr. Deepa V</div><div class="trole">Ph.D | IIT Madras Postdoc</div></div></div></div>
+    <div class="tcard"><div class="tstars">★★★★★</div><p class="ttext">"UI/UX training at TS Design is world-class. Got a Product Designer role in Bangalore in 2 months."</p><div class="tauthor"><div class="tavatar" style="background:linear-gradient(135deg,#ec4899,#8a2eff)">NK</div><div><div class="tname">Nithya K</div><div class="trole">B.Des UI/UX | Product Designer</div></div></div></div>
   </div>
+</section>
 
-  <!-- NAVBAR -->
-
-  <nav>
-
-    <div class="logo">
-      TS <span>GROUP</span>
-    </div>
-
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#institutions">Institutions</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-  </nav>
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="hero-content">
-
-      <h1>
-        Welcome to <span>TS GROUP OF INSTITUTION</span>
-      </h1>
-
-      <p>
-        Premium Educational Institutions with world-class infrastructure,
-        smart classrooms, modern laboratories, hospitals, placement support,
-        research centers and innovation hubs.
-      </p>
-
-      <a href="#institutions" class="hero-btn">
-        Explore Institutions
-      </a>
-
-      <!-- STATS -->
-
-      <div class="stats">
-
-        <div class="stat-box">
-          <h2>40+</h2>
-          <p>Institutions</p>
-        </div>
-
-        <div class="stat-box">
-          <h2>50K+</h2>
-          <p>Students</p>
-        </div>
-
-        <div class="stat-box">
-          <h2>500+</h2>
-          <p>Faculty Members</p>
-        </div>
-
-        <div class="stat-box">
-          <h2>95%</h2>
-          <p>Placement</p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- INSTITUTIONS -->
-
-  <section class="section" id="institutions">
-
-    <h1 class="section-title">
-      Our <span>Institutions</span>
-    </h1>
-
-    <!-- SEARCH -->
-
-    <div class="search-box">
-
-      <input type="text"
-      id="courseSearch"
-      placeholder="Search Institution..."
-      onkeyup="searchCourses()">
-
-    </div>
-
-    <!-- GRID -->
-
-    <div class="grid">
-
-      <!-- ENGINEERING -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Engineering College</h2>
-        <div class="badge">NBA Accredited | NAAC A++</div>
-        <p>Advanced engineering education with AI & Robotics labs.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.E CSE</li>
-            <li>B.Tech AI & DS</li>
-            <li>B.E Mechanical</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹85,000 - ₹1,80,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- ARTS -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Arts College</h2>
-        <div class="badge">NAAC Accredited</div>
-        <p>Creative arts and humanities education.</p>
-
-        <div class="details">
-          <ul>
-            <li>BA English</li>
-            <li>BA History</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹35,000 - ₹70,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- SCIENCE -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Science College</h2>
-        <div class="badge">Research Labs</div>
-        <p>Modern science education with advanced labs.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Sc Physics</li>
-            <li>B.Sc Chemistry</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹40,000 - ₹85,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- MEDICAL -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Medical College</h2>
-        <div class="badge">NMC Approved</div>
-        <p>Medical education with hospital training.</p>
-
-        <div class="details">
-          <ul>
-            <li>MBBS</li>
-            <li>MD</li>
-            <li>MS</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹8,00,000 - ₹18,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- DENTAL -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Dental College</h2>
-        <div class="badge">DCI Approved</div>
-        <p>Dental healthcare and surgery programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>BDS</li>
-            <li>MDS</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹3,00,000 - ₹7,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- NURSING -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Nursing College</h2>
-        <div class="badge">INC Approved</div>
-        <p>Nursing education with clinical training.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Sc Nursing</li>
-            <li>GNM</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,20,000 - ₹2,50,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- PHARMACY -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Pharmacy College</h2>
-        <div class="badge">PCI Approved</div>
-        <p>Pharmaceutical research and education.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Pharm</li>
-            <li>M.Pharm</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,50,000 - ₹3,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- LAW -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Law College</h2>
-        <div class="badge">BCI Approved</div>
-        <p>Legal studies with moot court training.</p>
-
-        <div class="details">
-          <ul>
-            <li>LLB</li>
-            <li>BA LLB</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹80,000 - ₹2,20,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- POLYTECHNIC -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Polytechnic College</h2>
-        <div class="badge">Diploma Programs</div>
-        <p>Technical diploma education with workshops.</p>
-
-        <div class="details">
-          <ul>
-            <li>Diploma Mechanical</li>
-            <li>Diploma Civil</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹40,000 - ₹90,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- ITI -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS ITI College</h2>
-        <div class="badge">Skill Development</div>
-        <p>Industrial and vocational training programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>Electrician</li>
-            <li>Welder</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹25,000 - ₹60,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- AGRICULTURE -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Agriculture College</h2>
-        <div class="badge">Agri Research Center</div>
-        <p>Modern agriculture and farming education.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Sc Agriculture</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹90,000 - ₹2,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- VETERINARY -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Veterinary College</h2>
-        <div class="badge">Animal Healthcare</div>
-        <p>Veterinary medicine and surgery programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>BVSc</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,50,000 - ₹3,50,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- ARCHITECTURE -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Architecture College</h2>
-        <div class="badge">COA Approved</div>
-        <p>Architecture and interior design programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Arch</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,50,000 - ₹4,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- DESIGN -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Design College</h2>
-        <div class="badge">Creative Studio</div>
-        <p>Creative and digital design education.</p>
-
-        <div class="details">
-          <ul>
-            <li>Graphic Design</li>
-            <li>UI/UX Design</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,00,000 - ₹2,50,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- AVIATION -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Aviation College</h2>
-        <div class="badge">Aviation Training Campus</div>
-        <p>Pilot and aviation management programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>B.Sc Aviation</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹2,00,000 - ₹6,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- MANAGEMENT -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Management College</h2>
-        <div class="badge">AICTE Approved</div>
-        <p>Management education with corporate training.</p>
-
-        <div class="details">
-          <ul>
-            <li>MBA HR</li>
-            <li>MBA Finance</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,50,000 - ₹3,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- PHYSIOTHERAPY -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Physiotherapy College</h2>
-        <div class="badge">Rehabilitation Center</div>
-        <p>Physiotherapy and rehabilitation programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>BPT</li>
-            <li>MPT</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,20,000 - ₹2,50,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- PARAMEDICAL -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Paramedical College</h2>
-        <div class="badge">Medical Support Training</div>
-        <p>Emergency and medical support education.</p>
-
-        <div class="details">
-          <ul>
-            <li>Diploma Paramedical</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹80,000 - ₹2,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- RESEARCH -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS Research Institute</h2>
-        <div class="badge">Innovation & Research</div>
-        <p>Advanced interdisciplinary research programs.</p>
-
-        <div class="details">
-          <ul>
-            <li>Ph.D Programs</li>
-            <li>Research Fellowships</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹1,50,000 - ₹5,00,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- SCHOOL MATRIC -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS School Matric</h2>
-        <div class="badge">Matriculation Curriculum</div>
-        <p>Smart education with modern classrooms.</p>
-
-        <div class="details">
-          <ul>
-            <li>LKG - UKG</li>
-            <li>Primary School</li>
-            <li>Higher Secondary</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹25,000 - ₹80,000 / Year
-          </div>
-        </div>
-      </div>
-
-      <!-- CBSE -->
-
-      <div class="card" onclick="toggleDetails(this)">
-        <h2>TS CBSE School</h2>
-        <div class="badge">CBSE Curriculum</div>
-        <p>International-standard CBSE education system.</p>
-
-        <div class="details">
-          <ul>
-            <li>Primary Education</li>
-            <li>Senior Secondary</li>
-          </ul>
-
-          <div class="fee">
-            Fees : ₹40,000 - ₹1,20,000 / Year
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
- <!-- ADD THIS BEFORE FOOTER -->
-
+<!-- DEVELOPER -->
 <section class="section" id="developer">
-
-  <h1 class="section-title">
-    Developer <span>Info</span>
-  </h1>
-
-  <div class="grid" style="grid-template-columns:1fr; justify-items:center;">
-
-    <div class="card" style="max-width:600px; width:100%; text-align:center;">
-
-      <h2>Bala T</h2>
-      <div class="badge">Website Developer</div>
-
-      <p>
-        This website is designed and developed by Bala T.
-      </p>
-
-      <div class="details" style="display:block; margin-top:20px;">
-
-        <p><b>LinkedIn:</b></p>
-<a href="linkedin://in/bala-t-33609a32b" target="_blank" class="contact-btn">
-  Open in App
-</a>
-
-        <br><br>
-
-        <p><b>Email:</b></p>
-      <a href="mailto:24balat@gmail.com?subject=Hello&body=I want to connect with you and Ready to Work on Real-World Projects" class="contact-btn">
-  Send Email : 24balat@gmail.com
-</a>
-
-      </div>
-
+  <h1 class="sec-title">Developer <span>Info</span></h1>
+  <div class="dev-wrap">
+    <div class="dev-av">BT</div>
+    <h2>Bala T</h2>
+    <div class="badge" style="margin:0 auto 10px"><i class="fa-solid fa-code"></i> Frontend Developer</div>
+    <p style="color:var(--text2);font-size:14px;line-height:1.7;">Designed and developed by Bala T — passionate about building modern, user-friendly web experiences with clean code.</p>
+    <div class="dev-links">
+      <a href="https://linkedin.com/in/bala-t-33609a32b" target="_blank" class="dev-link"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="mailto:24balat@gmail.com?subject=Hello&body=Ready to Work on Real-World Projects" class="dev-link"><i class="fa-solid fa-envelope"></i> 24balat@gmail.com</a>
     </div>
-
   </div>
-
 </section>
 
 <!-- FOOTER -->
-
 <footer id="contact">
-  © 2026 TS GROUP OF INSTITUTION | All Rights Reserved
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">TS <span>GROUP</span></div>
+      <p>Premium educational institutions in Salem, Tamil Nadu — spanning Engineering, Medical, Arts, Law, Management, Schools and more.</p>
+    </div>
+    <div class="fcol">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#institutions">Institutions</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#" onclick="openModal();return false;">Apply Now</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+919345836377"><i class="fa-solid fa-phone" style="color:var(--accent);margin-right:6px"></i>+91 9345836377</a></li>
+        <li><a href="mailto:admissions@tsgroup.edu"><i class="fa-solid fa-envelope" style="color:var(--accent);margin-right:6px"></i>admissions@tsgroup.edu</a></li>
+        <li><a href="#"><i class="fa-solid fa-location-dot" style="color:var(--accent);margin-right:6px"></i>Salem, Tamil Nadu</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <p>© 2026 TS GROUP OF INSTITUTION | All Rights Reserved | Developed by Bala T</p>
+    <div class="fsocial">
+      <a href="#" class="fsoc"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="fsoc"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="fsoc"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" class="fsoc"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
 </footer>
 
-  <!-- SCRIPT -->
+<!-- FLOATING BUTTONS -->
+<div class="floats">
+  <button class="fb fb-top" id="fbTop" onclick="scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
+  <a href="https://wa.me/919345836377?text=Hello%2C%20I%20am%20interested%20in%20admissions." target="_blank" class="fb fb-wa"><i class="fa-brands fa-whatsapp"></i></a>
+  <button class="fb fb-apply" onclick="openModal()"><i class="fa-solid fa-paper-plane"></i> Apply Now</button>
+</div>
+<div class="bm-badge" id="bmBadge"><i class="fa-solid fa-bookmark"></i> <span id="bmNum">0</span> saved</div>
 
-  <script>
+<!-- ADMISSION MODAL -->
+<div class="overlay" id="admOverlay" onclick="closeOverlay(event)">
+  <div class="modal">
+    <button class="mclose" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    <div id="formView">
+      <h2>Admission <span style="color:var(--accent)">Enquiry</span></h2>
+      <p class="msub">Fill in your details — our team contacts you within 24 hrs. Data saved to your database.</p>
+      <div class="frow">
+        <div class="fg"><label>First Name *</label><input id="fn" type="text" placeholder="First name"></div>
+        <div class="fg"><label>Last Name</label><input id="ln" type="text" placeholder="Last name"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>Mobile *</label><input id="mob" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="fg"><label>Email</label><input id="eml" type="email" placeholder="email@example.com"></div>
+      </div>
+      <div class="fg"><label>City / District</label><input id="city" type="text" placeholder="Your city"></div>
+      <div class="fg"><label>Institution of Interest *</label>
+        <select id="inst">
+          <option value="">-- Select Institution --</option>
+          <option>TS Engineering College</option><option>TS Medical College</option><option>TS Dental College</option>
+          <option>TS Nursing College</option><option>TS Pharmacy College</option><option>TS Arts & Science College</option>
+          <option>TS Law College</option><option>TS Management College</option><option>TS Polytechnic College</option>
+          <option>TS ITI College</option><option>TS Architecture College</option><option>TS Design College</option>
+          <option>TS Aviation College</option><option>TS Physiotherapy College</option><option>TS Agriculture College</option>
+          <option>TS Veterinary College</option><option>TS Research Institute</option><option>TS Paramedical College</option>
+          <option>TS Matric School</option><option>TS CBSE School</option>
+        </select>
+      </div>
+      <div class="fg"><label>Course / Branch of Interest</label><input id="crs" type="text" placeholder="e.g. B.E CSE, MBBS, MBA Finance..."></div>
+      <div class="fg"><label>Message (Optional)</label><textarea id="msg" placeholder="Any questions or special requirements..."></textarea></div>
+      <button class="sub-btn" onclick="submitEnquiry()"><i class="fa-solid fa-paper-plane"></i> Submit Enquiry</button>
+      <div class="export-row" id="exportRow" style="display:none">
+        <button class="exp-btn exp-csv" onclick="exportCSV()"><i class="fa-solid fa-file-csv"></i> Export All to CSV/Excel</button>
+        <button class="exp-btn exp-json" onclick="exportJSON()"><i class="fa-solid fa-file-code"></i> Export JSON</button>
+      </div>
+      <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:10px;" id="dbInfo">
+        <i class="fa-solid fa-circle-info"></i> Data saves locally + attempts MySQL API at localhost:3001
+      </p>
+    </div>
+    <div class="success-view" id="successView">
+      <i class="fa-solid fa-circle-check"></i>
+      <h3>Enquiry Submitted!</h3>
+      <p>Our admissions team will call you within 24 hours.<br><span style="color:var(--accent);font-size:13px;">Data saved ✓</span></p>
+      <button class="sub-btn" style="margin-top:18px;max-width:200px;margin-left:auto;margin-right:auto;" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
 
-    function toggleDetails(card){
+<!-- CHATBOT -->
+<div class="chat-bubble">
+  <button class="chat-toggle" id="chatToggle" onclick="toggleChat()"><i class="fa-solid fa-robot" id="chatIcon"></i></button>
+</div>
+<div class="chat-window" id="chatWin">
+  <div class="chat-head">
+    <div class="chat-av"><i class="fa-solid fa-robot"></i></div>
+    <div class="chat-head-info"><h4>TS Admissions Assistant</h4><p>Ask anything about our institutions</p></div>
+    <button class="chat-close-btn" onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="quick-btns" id="quickBtns">
+    <button class="qbtn" onclick="quickAsk('What courses are available in Engineering?')">Engineering courses</button>
+    <button class="qbtn" onclick="quickAsk('What is the fee for MBBS?')">MBBS fees</button>
+    <button class="qbtn" onclick="quickAsk('Tell me about MBA specializations')">MBA details</button>
+    <button class="qbtn" onclick="quickAsk('How to apply for admission?')">How to apply</button>
+    <button class="qbtn" onclick="quickAsk('What is the placement percentage?')">Placement info</button>
+    <button class="qbtn" onclick="quickAsk('Which schools are available?')">Schools info</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInp" type="text" placeholder="Ask about courses, fees, admission..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+</div>
 
-      let details = card.querySelector(".details");
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastTxt"></span></div>
 
-      if(details.style.display === "block"){
-        details.style.display = "none";
-      }
-      else{
-        details.style.display = "block";
-      }
+<script>
+// ===================== CONFIG =====================
+const API_URL = 'http://localhost:3001'; // Your Node.js MySQL API
+let dbOnline = false;
+let enquiries = JSON.parse(localStorage.getItem('ts_enquiries') || '[]');
+let bookmarks = 0;
 
+// ===================== DB STATUS CHECK =====================
+async function checkDB() {
+  try {
+    const r = await fetch(API_URL + '/ping', { signal: AbortSignal.timeout(2000) });
+    if (r.ok) {
+      dbOnline = true;
+      document.getElementById('dbStatusTop').className = 'db-status online';
+      document.getElementById('dbStatusTop').innerHTML = '<span class="db-dot"></span>DB Online';
     }
+  } catch(e) { dbOnline = false; }
+}
+checkDB();
 
-    function searchCourses(){
+// ===================== PARTICLES =====================
+(function() {
+  const p = document.getElementById('ptcls');
+  for (let i = 0; i < 16; i++) {
+    const d = document.createElement('div');
+    const s = Math.random() * 7 + 3;
+    d.className = 'particle';
+    d.style.cssText = 'width:' + s + 'px;height:' + s + 'px;left:' + (Math.random() * 100) + '%;animation-duration:' + (Math.random() * 12 + 8) + 's;animation-delay:' + (Math.random() * 10) + 's;';
+    p.appendChild(d);
+  }
+})();
 
-      let input = document.getElementById("courseSearch").value.toLowerCase();
+// ===================== TYPING ANIMATION =====================
+const words = ['TS GROUP', 'Excellence', 'Innovation', 'Your Future', 'Tamil Nadu\'s Best'];
+let wi = 0, ci = 0, del = false;
+const typer = document.getElementById('typer');
+function type() {
+  const w = words[wi];
+  if (!del) { typer.textContent = w.slice(0, ++ci); if (ci === w.length) { del = true; setTimeout(type, 2200); return; } }
+  else { typer.textContent = w.slice(0, --ci); if (ci === 0) { del = false; wi = (wi + 1) % words.length; } }
+  setTimeout(type, del ? 55 : 95);
+}
+setTimeout(type, 1000);
 
-      let cards = document.querySelectorAll(".card");
+// ===================== COUNTERS =====================
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target, t = +el.dataset.t, s = el.dataset.s || '+';
+      let c = 0, step = t / 55;
+      const iv = setInterval(() => { c = Math.min(c + step, t); el.textContent = Math.round(c) + s; if (c >= t) clearInterval(iv); }, 22);
+      obs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.ctr').forEach(c => obs.observe(c));
 
-      cards.forEach(card => {
+// ===================== THEME =====================
+let dark = true;
+document.getElementById('themeBtn').onclick = () => {
+  dark = !dark;
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  document.getElementById('themeBtn').innerHTML = dark ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+};
 
-        let text = card.innerText.toLowerCase();
+// ===================== HAMBURGER =====================
+const ham = document.getElementById('hamburger'), mm = document.getElementById('mobMenu');
+ham.onclick = () => { mm.style.display = mm.style.display === 'flex' ? 'none' : 'flex'; };
 
-        if(text.includes(input)){
-          card.style.display = "block";
-        }
-        else{
-          card.style.display = "none";
-        }
+// ===================== SCROLL =====================
+window.addEventListener('scroll', () => {
+  window.scrollY > 380 ? document.getElementById('fbTop').classList.add('show') : document.getElementById('fbTop').classList.remove('show');
+});
 
+// ===================== CARD TOGGLE =====================
+function toggleCard(card) {
+  const d = card.querySelector('.details');
+  const open = d.style.display === 'block';
+  document.querySelectorAll('.details').forEach(x => x.style.display = 'none');
+  if (!open) d.style.display = 'block';
+}
+
+// ===================== SEARCH =====================
+function doSearch() {
+  const q = document.getElementById('srch').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('#cardGrid .card');
+  let v = 0;
+  cards.forEach(c => { const m = c.innerText.toLowerCase().includes(q); c.style.display = m ? '' : 'none'; if (m) v++; });
+  document.getElementById('noRes').style.display = v === 0 ? 'block' : 'none';
+}
+
+// ===================== FILTER =====================
+function filterCards(cat, btn) {
+  document.querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('srch').value = '';
+  const cards = document.querySelectorAll('#cardGrid .card');
+  let v = 0;
+  cards.forEach(c => { const show = cat === 'all' || c.dataset.cat === cat; c.style.display = show ? '' : 'none'; if (show) v++; });
+  document.getElementById('noRes').style.display = v === 0 ? 'block' : 'none';
+}
+
+// ===================== BOOKMARK =====================
+function toggleBM(e, btn) {
+  e.stopPropagation();
+  const saved = btn.classList.toggle('saved');
+  btn.innerHTML = saved ? '<i class="fa-solid fa-bookmark"></i>' : '<i class="fa-regular fa-bookmark"></i>';
+  bookmarks += saved ? 1 : -1;
+  document.getElementById('bmNum').textContent = bookmarks;
+  document.getElementById('bmBadge').style.display = bookmarks > 0 ? 'flex' : 'none';
+  showToast(saved ? 'Institution saved!' : 'Removed from saved');
+}
+
+// ===================== TOAST =====================
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastTxt').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+// ===================== MODAL =====================
+function openModal(inst = '') {
+  document.getElementById('admOverlay').classList.add('open');
+  document.getElementById('formView').style.display = 'block';
+  document.getElementById('successView').style.display = 'none';
+  if (inst) document.getElementById('inst').value = inst;
+  if (enquiries.length > 0) document.getElementById('exportRow').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('admOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeOverlay(e) { if (e.target === document.getElementById('admOverlay')) closeModal(); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ===================== SUBMIT ENQUIRY =====================
+async function submitEnquiry() {
+  const fn = document.getElementById('fn').value.trim();
+  const mob = document.getElementById('mob').value.trim();
+  const inst = document.getElementById('inst').value;
+  if (!fn || !mob || !inst) { showToast('Please fill required fields (*)'); return; }
+  const entry = {
+    id: Date.now(),
+    timestamp: new Date().toLocaleString('en-IN'),
+    firstName: fn,
+    lastName: document.getElementById('ln').value.trim(),
+    mobile: mob,
+    email: document.getElementById('eml').value.trim(),
+    city: document.getElementById('city').value.trim(),
+    institution: inst,
+    course: document.getElementById('crs').value.trim(),
+    message: document.getElementById('msg').value.trim(),
+    status: 'New'
+  };
+  // Save locally
+  enquiries.push(entry);
+  localStorage.setItem('ts_enquiries', JSON.stringify(enquiries));
+  // Try MySQL API
+  if (dbOnline) {
+    try {
+      await fetch(API_URL + '/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(entry)
       });
+    } catch(e) {}
+  }
+  document.getElementById('formView').style.display = 'none';
+  document.getElementById('successView').style.display = 'block';
+  document.getElementById('exportRow').style.display = 'flex';
+  showToast('Enquiry submitted & saved!');
+}
 
-    }
+// ===================== EXPORT CSV =====================
+function exportCSV() {
+  if (!enquiries.length) { showToast('No enquiries yet'); return; }
+  const headers = ['ID','Timestamp','First Name','Last Name','Mobile','Email','City','Institution','Course','Message','Status'];
+  const rows = enquiries.map(e => [e.id,e.timestamp,e.firstName,e.lastName,e.mobile,e.email,e.city,e.institution,e.course,e.message,e.status].map(v => '"'+(v||'').toString().replace(/"/g,'""')+'"').join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'TS_Group_Enquiries_' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  showToast('CSV exported — open in Excel!');
+}
 
-  </script>
+// ===================== EXPORT JSON =====================
+function exportJSON() {
+  if (!enquiries.length) { showToast('No enquiries yet'); return; }
+  const blob = new Blob([JSON.stringify(enquiries, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'TS_Group_Enquiries_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  showToast('JSON exported!');
+}
 
+// ===================== CHATBOT =====================
+const INST_INFO = `You are the official AI admissions assistant for TS Group of Institutions, Salem, Tamil Nadu, India.
+
+ABOUT TS GROUP:
+- 40+ institutions, 50,000+ students, 500+ faculty, 95% placement rate
+- Location: Salem, Tamil Nadu | Phone: +91 9345836377 | Email: admissions@tsgroup.edu
+
+INSTITUTIONS & BRANCHES:
+1. TS Engineering College (NBA, NAAC A++): B.E CSE, IT, AI&DS, AI&ML, CSBS, ECE, EEE, Mechanical, Civil, Aeronautical, Automobile, Chemical, Biomedical, Robotics, Cyber Security, IoT | PG: M.E CS, VLSI, Structural, Power Systems, M.Tech Data Science
+2. TS Medical College (NMC, 1000-bed hospital): MBBS | MD: Medicine, Paediatrics, Psychiatry, Dermatology, Radiology, Anaesthesiology, Pathology | MS: Surgery, Ortho, ENT, Ophthalmology, OBG | DM: Cardiology, Neurology, Nephrology | MCh: Neurosurgery, Urology
+3. TS Dental College (DCI): BDS | MDS: Orthodontics, Oral Surgery, Conservative, Prosthodontics, Periodontology, Pedodontics, Oral Medicine, Oral Pathology, Public Health
+4. TS Nursing College (INC): B.Sc Nursing, GNM, ANM | M.Sc: Medical Surgical, Psychiatric, Paediatric, OBG, Community Nursing
+5. TS Pharmacy College (PCI): B.Pharm, Pharm.D, D.Pharm | M.Pharm: Pharmaceutics, Pharmacology, Chemistry, Pharmacognosy, QA, Regulatory Affairs, Industrial
+6. TS Arts & Science College (NAAC A): BA: English, Tamil, History, Economics, Political Science, Sociology, Journalism | B.Sc: Maths, Physics, Chemistry, Zoology, Botany, Microbiology, Biotechnology, CS, IT | B.Com: General, CA, A&F | PG programs available
+7. TS Law College (BCI): BA LLB, BBA LLB, B.Com LLB (5yr), LLB (3yr) | LLM: Constitutional, Criminal, Corporate, IPR, International, Labour, Cyber, Family, Human Rights Law
+8. TS Management College (AICTE, NBA): BBA, B.Com | MBA: HR, Finance, Marketing, Operations, International, Business Analytics, Healthcare, Logistics, Digital Marketing, Entrepreneurship, Agribusiness | Executive MBA, Ph.D
+9. TS Polytechnic (DOTE): Diploma in Mechanical, Civil, EEE, ECE, Computer, IT, Automobile, Chemical, Textile, Plastic, Printing, Architecture
+10. TS ITI (NCVT): Electrician, Fitter, Turner, Machinist, Welder, Draughtsman, Electronics Mechanic, Motor Vehicle Mechanic | Non-Eng: COPA, Stenography, Tailoring, Hair & Skin Care
+11. TS Architecture (COA): B.Arch, B.Des Interior Design, B.Planning | M.Arch: Urban Design, Housing, Sustainable, Landscape, Industrial
+12. TS Design College (NID): B.Des: Graphic, Communication, UI/UX, Product, Fashion, Textile, Animation, Industrial, Jewellery, Film & VFX | M.Des available
+13. TS Aviation (DGCA): B.Sc Aviation, AME, BBA Airport Mgmt, ATC | Diploma: Cabin Crew, Ground Staff, Ticketing | CPL, MBA Aviation
+14. TS Physiotherapy (IAP): BPT | MPT: Sports, Neurological, Paediatric, Cardiopulmonary, Community, Geriatric, Women's Health | Ph.D
+15. TS Agriculture (ICAR): B.Sc Agriculture, Horticulture, Forestry, B.Tech Agri Engg, Food Tech, BBA Agribusiness | M.Sc: Agronomy, Soil Science, Plant Pathology, Entomology, Plant Breeding | MBA Agribusiness
+16. TS Veterinary (VCI): BVSc & AH | MVSc: Medicine, Surgery, Gynaecology, Nutrition, Pathology, Microbiology, Parasitology, Livestock, Pharmacology
+17. TS Research Institute (DST): Ph.D in Engg, Medicine, Science, Mgmt, Humanities, Law, Agriculture, Education | Post-Doc, DST-INSPIRE, ICMR Fellowships
+18. TS Paramedical (PMDC): B.Sc: MLT, Radiology, OT Tech, Anaesthesia, Dialysis, Cardiac, Optometry, Respiratory, Perfusion, Emergency, Medical Records | Diploma programs
+19. TS Matric School: LKG-UKG, Primary, Middle, High School, Higher Secondary (Bio-Maths, CS, Commerce, Arts, Vocational groups)
+20. TS CBSE School (NEP 2020): PCM, PCB, PCMB, Commerce, Humanities, Computer Science elective | IIT/NEET coaching
+
+FEES RANGE: Engineering ₹85K-1.8L | MBBS ₹8L-18L | Dental ₹3L-7L | Nursing ₹1.2L-2.5L | MBA ₹1.5L-3.2L | School ₹25K-1.2L
+
+HOW TO APPLY: Click "Apply Now" on the website, fill the enquiry form. Our team contacts within 24 hours. Documents: 10th/12th marksheet, Transfer Certificate, Aadhar, passport photo.
+
+SCHOLARSHIPS: Merit scholarships up to 100% for top scorers. SC/ST/OBC government scholarships applicable. Sports quota available.
+
+Always be helpful, accurate, and encourage the user to apply or call +91 9345836377 for personalized guidance. Keep responses concise and friendly.`;
+
+let chatHistory = [];
+let chatOpen = false;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  const win = document.getElementById('chatWin');
+  win.classList.toggle('open', chatOpen);
+  document.getElementById('chatIcon').className = chatOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-robot';
+  if (chatOpen && chatHistory.length === 0) {
+    addMsg('bot', "👋 Hello! I'm the TS Group AI Assistant. I know everything about our 20+ institutions, courses, fees, and admissions. How can I help you today?");
+  }
+}
+
+function addMsg(role, text) {
+  const div = document.getElementById('chatMsgs');
+  const m = document.createElement('div');
+  m.className = 'msg ' + role;
+  m.textContent = text;
+  div.appendChild(m);
+  div.scrollTop = div.scrollHeight;
+  return m;
+}
+
+function quickAsk(q) {
+  document.getElementById('chatInp').value = q;
+  sendChat();
+}
+
+async function sendChat() {
+  const inp = document.getElementById('chatInp');
+  const q = inp.value.trim();
+  if (!q) return;
+  inp.value = '';
+  document.getElementById('quickBtns').style.display = 'none';
+  addMsg('user', q);
+  chatHistory.push({ role: 'user', content: q });
+  const typing = addMsg('bot', '...');
+  typing.classList.add('typing');
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: INST_INFO,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || "I'm sorry, I couldn't process that. Please call +91 9345836377 for help.";
+    typing.textContent = reply;
+    typing.classList.remove('typing');
+    chatHistory.push({ role: 'assistant', content: reply });
+    if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
+  } catch(e) {
+    typing.textContent = getBotFallback(q);
+    typing.classList.remove('typing');
+  }
+}
+
+function getBotFallback(q) {
+  q = q.toLowerCase();
+  if (q.includes('engineer')) return "TS Engineering College offers B.E/B.Tech in CSE, IT, AI&DS, ECE, EEE, Mechanical, Civil, Aeronautical, Robotics, Cyber Security, IoT and 6 more branches. Fees: ₹85,000–₹1,80,000/year. Click Apply Now to enquire!";
+  if (q.includes('mbbs') || q.includes('medical')) return "TS Medical College is NMC approved with a 1000-bed teaching hospital. MBBS is 5.5 years. Fees: ₹8L–₹18L/year. MD/MS/DM/MCh programs available. Call +91 9345836377 for details.";
+  if (q.includes('mba') || q.includes('management')) return "TS Management College offers MBA in 11 specializations: HR, Finance, Marketing, Operations, International Business, Analytics, Healthcare, Logistics, Digital Marketing, Entrepreneurship, and Agribusiness. Fees: ₹1.5L–₹3.2L/year.";
+  if (q.includes('fee') || q.includes('cost')) return "Fees vary by program: Engineering ₹85K-1.8L | MBBS ₹8L-18L | Dental ₹3L-7L | Nursing ₹1.2-2.5L | MBA ₹1.5-3.2L | Schools ₹25K-1.2L per year. Scholarships available!";
+  if (q.includes('apply') || q.includes('admission')) return "To apply: Click the 'Apply Now' button, fill the enquiry form with your name, mobile & preferred institution. Our team contacts you within 24 hours. Documents needed: 10th/12th marksheets, TC, Aadhar, photo.";
+  if (q.includes('placement')) return "TS Group has a 95% placement record! Top recruiters include TCS, Infosys, Wipro, HCL, Axis Bank, Apollo, Fortis and 200+ more companies. Engineering placement average ₹4.5 LPA.";
+  if (q.includes('school') || q.includes('cbse') || q.includes('matric')) return "We have TS CBSE School (NEP 2020 aligned, IIT/NEET coaching) and TS Matric School. CBSE fees: ₹40K-1.2L/yr. Matric fees: ₹25K-80K/yr. Both have smart classrooms and sports facilities.";
+  if (q.includes('scholarship')) return "Merit scholarships up to 100% for top scorers! Government SC/ST/OBC scholarships applicable. Sports quota and NCC/NSS quota also available. Contact admissions for details.";
+  return "Thank you for your question! For detailed information, please call us at +91 9345836377 or email admissions@tsgroup.edu. You can also click 'Apply Now' to submit an enquiry and we'll respond within 24 hours.";
+}
+</script>
+
+<!--
+===========================================================
+  MYSQL BACKEND SETUP (run this separately as server.js)
+  npm install express mysql2 cors body-parser
+===========================================================
+
+const express = require('express');
+const mysql = require('mysql2');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+
+const db = mysql.createConnection({
+  host: 'localhost', user: 'root',
+  password: 'YOUR_PASSWORD', database: 'ts_group'
+});
+
+db.connect(err => {
+  if (err) { console.log('DB Error:', err); return; }
+  console.log('MySQL Connected!');
+  db.query(`CREATE TABLE IF NOT EXISTS enquiries (
+    id BIGINT PRIMARY KEY, timestamp VARCHAR(50),
+    firstName VARCHAR(100), lastName VARCHAR(100),
+    mobile VARCHAR(20), email VARCHAR(100),
+    city VARCHAR(100), institution VARCHAR(200),
+    course VARCHAR(200), message TEXT, status VARCHAR(50)
+  )`);
+});
+
+app.get('/ping', (req, res) => res.json({ status: 'ok' }));
+
+app.post('/enquiry', (req, res) => {
+  const e = req.body;
+  db.query('INSERT INTO enquiries VALUES (?,?,?,?,?,?,?,?,?,?,?)',
+    [e.id,e.timestamp,e.firstName,e.lastName,e.mobile,e.email,e.city,e.institution,e.course,e.message,e.status],
+    (err) => res.json({ success: !err, error: err?.message })
+  );
+});
+
+app.get('/enquiries', (req, res) => {
+  db.query('SELECT * FROM enquiries ORDER BY id DESC', (err, rows) => res.json(rows || []));
+});
+
+app.listen(3001, () => console.log('TS Group API running on http://localhost:3001'));
+
+===========================================================
+  TO RUN MYSQL BACKEND:
+  1. node server.js
+  2. Open http://localhost:3001/enquiries to see all data
+  3. Import the CSV into Excel anytime from the form
+===========================================================
+-->
 </body>
-
 </html>
